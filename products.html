@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="title" content="Submersible Pump Manufacturers | India's #1 Submersible Pumps"> -->
+    <title>Algo Products Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+     <link rel="icon" type="icon" href="assets/Img/logo o.png">
+    <link rel="stylesheet" href="assets/Css/Style.css">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --dark-bg: #f2f7fd;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 1rem 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-container {
+            padding: 0 1.5rem 3rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card::before {
+            display: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-img-container {
+            height: 200px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-container img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1rem;
+            background-color: #ffffff;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-bg);
+        }
+
+        .product-category {
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .btn-details {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.85rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-details:hover {
+            background-color: #0b5ed7;
+            color: rgba(255, 255, 255, 0.804);
+        }
+
+        .filters {
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .pagination {
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .product-img-container {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 0.75rem;
+            }
+
+            .product-img-container {
+                height: 150px;
+            }
+
+            .product-info {
+                padding: 0.75rem;
+            }
+
+            .product-title {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Add animation effects */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Touch device hover effect */
+        .product-card.touch-hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dark mode toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 999;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Lazy loading image effect */
+        .lazy-load {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .lazy-load.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- top-nav -->
+    <div style="background-color: rgb(1 38 140);" style="top: 0;" class="top-bar sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- <div class="col-sm-8 col-6 d-flex justify-content-end">
+                    <span>Part of <img src="assets/Img/logo.png" alt="Algo Group"
+                            style="height: 20px;filter: brightness(1000%);"></span>
+                </div> -->
+                <div class="col text-end social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-selector d-lg-inline d-none">PUMP SELECTOR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation with Offcanvas -->
+    <nav style="top: 60px;background-color: #01195b;" class="navbar navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand logo-container" href="#">
+                <img src="assets/Img/algo white.png" alt="Algo Logo">
+                <!-- <img src="/api/placeho/lder/50/50" alt="50 Years" class="anniversary-logo"> -->
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <img width="150px" src="assets/Img/logo.png" alt="Algo Logo">
+
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="index.html" id="mobileDrop1">
+                                Home
+                            </a>
+
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="index.html#about" id="mobileDrop1">
+                                About
+                            </a>
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mobileDrop2" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="mobileDrop2">
+                                <li><a class="dropdown-item" href="index.html#products">Pumps</a></li>
+                                <li><a class="dropdown-item" href="index.html#products">Motors</a></li>
+                                <li><a class="dropdown-item" href="index.html#products">Control Systems</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="mobileDrop3" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Service and support
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="mobileDrop3">
+                                <li><a class="dropdown-item" href="#">Customer Support</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contacts</a>
+                        </li>
+
+                        <div class=" contactright gap-3 d-flex align-items-center py-1 mt-md-0 mt-4 pb-md-1 pb-3">
+                            <div id="google_translate_element"></div>
+                            <div class="lang-switcher ">
+                                <button style="z-index: 11111;" class="lang-btn btn btn-primary mt-md-3 py-2 px-4"><i
+                                        class="bi bi-globe-asia-australia"></i> Language</button>
+                               <ul class="lang-menu">
+                                    <li data-lang="en"><img src="https://flagcdn.com/w40/gb.png"> English</li>
+                                    <li data-lang="af"><img src="https://flagcdn.com/w40/za.png"> Afrikaans</li>
+                                    <li data-lang="it"><img src="https://flagcdn.com/w40/it.png"> Italian</li>
+                                    <li data-lang="ar"><img src="https://flagcdn.com/w40/sa.png"> Arabic</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="text-center text-white mb-2">Product Image Gallery</h1>
+            <p class="text-center text-light fs-5 mb-0">Explore Our Premium Products</p>
+        </div>
+    </header>
+
+    <div class="container gallery-container">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="input-group mb-4 d-flex align-items-end">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
+                <button class="btn btn-primary" type="button" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filters">
+            <h5 class="text-dark mb-3">Filter by Category:</h5>
+            <div class="d-flex flex-wrap">
+                <button class="btn btn-outline-dark filter-btn active" data-category="all">All Products</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="pipes">Pipes</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="motors">Motors</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="pumps">Pumps</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="others">Others</button>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p class="text-white mt-3">Loading products...</p>
+        </div>
+
+        <!-- Product Gallery Grid -->
+        <div class="gallery-grid" id="productGallery">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="pipes">
+                <div class="product-img-container">
+                    <img src="assets/Img/adoptors pipe 1.png" alt="Adoptor Pipe 1" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Adoptor Pipe - Type 1</h5>
+                    <p class="product-category">Category: Pipes</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-category="pipes">
+                <div class="product-img-container">
+                    <img src="assets/Img/adoptors pipe 2.png" alt="Adoptor Pipe 2" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Adoptor Pipe - Type 2</h5>
+                    <p class="product-category">Category: Pipes</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/blora -D.png" alt="Blora-D" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Blora-D System</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/blora.png" alt="Blora" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Blora Standard</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/bmc.png" alt="BMC" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">BMC Controller</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/bms.png" alt="BMS" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">BMS System</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/br.png" alt="BR" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">BR Standard</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/brd.png" alt="BRD" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">BRD System</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/brf.png" alt="BRF" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">BRF System</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/brm.png" alt="BRM" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">BRM System</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/hns horizontal.png" alt="HNS Horizontal" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">HNS Horizontal</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/hns vertical.png" alt="HNS Vertical" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">HNS Vertical</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/hyro.png" alt="Hyro" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Hyro System</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/jawa black.png" alt="Jawa Black" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Jawa Black</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 15 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/jawa ss.png" alt="Jawa SS" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Jawa Stainless Steel</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 16 -->
+            <div class="product-card" data-category="pipes">
+                <div class="product-img-container">
+                    <img src="assets/Img/pipes.png" alt="Pipes" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Premium Pipes Set</h5>
+                    <p class="product-category">Category: Pipes</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 17 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/ronda blue.png" alt="Ronda Blue" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Ronda Blue</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 18 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/sendra black.png" alt="Sendra Black" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Sendra Black</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 19 -->
+            <div class="product-card" data-category="others">
+                <div class="product-img-container">
+                    <img src="assets/Img/sendra ss.png" alt="Sendra SS" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Sendra Stainless Steel</h5>
+                    <p class="product-category">Category: Others</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 20 -->
+            <div class="product-card" data-category="motors">
+                <div class="product-img-container">
+                    <img src="assets/Img/submersible motor 1.png" alt="Submersible Motor 1" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Submersible Motor - Type 1</h5>
+                    <p class="product-category">Category: Motors</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 21 -->
+            <div class="product-card" data-category="motors">
+                <div class="product-img-container">
+                    <img src="assets/Img/submersible motor 2.png" alt="Submersible Motor 2" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Submersible Motor - Type 2</h5>
+                    <p class="product-category">Category: Motors</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 22 -->
+            <div class="product-card" data-category="motors">
+                <div class="product-img-container">
+                    <img src="assets/Img/submersible motor ss 2.png" alt="Submersible Motor SS 2" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Submersible Motor SS - Type 2</h5>
+                    <p class="product-category">Category: Motors</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 23 -->
+            <div class="product-card" data-category="pumps">
+                <div class="product-img-container">
+                    <img src="assets/Img/submersible pump 1.png" alt="Submersible Pump 1" class="img-fluid">
+                </div>
+                <div class="product-info">
+                    <h5 class="product-title">Submersible Pump - Type 1</h5>
+                    <p class="product-category">Category: Pumps</p>
+                    <div class="product-footer">
+                        <button class="btn btn-details">View Details</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Product gallery pagination" class="mt-4">
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+
+  <!-- Footer Start -->
+    <div class="container-fluid position-relative footer text-white-50 py-5 " style="margin-top: 90px;background: rgb(1 38 140);">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 mb-5">
+                    <a href="index.html" class="navbar-brand">
+                        <h1 class="mt-n2 text-uppercase text-white"><img width="180px"
+                                style="filter: brightness(1000%);" src="assets/Img/logo.png" alt=""></h1>
+                    </a>
+                    <p class="m-0">Algo stays abreast of the major changes worldwide in terms of technology and processes. This combines with the ability to understand customers' requirement allows for the development of products that meet the challenges of tomorrow.</p>
+                </div>
+                <!-- <div class="col-md-6 mb-5">
+                    <h3 class="text-white mb-4">Newsletter</h3>
+                    <div class="w-100">
+                        <div class="input-group">
+                            <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary px-4">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <h3 class="text-white mb-4">Get In Touch</h3>
+                    <p><a target="_blank" href="https://maps.app.goo.gl/frtEET6VK5euh8zf8"
+                            style="color: rgba(255, 255, 255, 0.5);text-decoration: none;"><i
+                                class="fa fa-map-marker-alt mr-2"></i>Johannesburg, South Africa</a></p>
+                    <p><a href="tel:+27731604791" style="color: rgba(255, 255, 255, 0.5);text-decoration: none;"><i
+                                class="fa fa-phone mr-2"></i>+27731604791</a></p>
+                    <p><a href="tel:+27785068977" style="color: rgba(255, 255, 255, 0.5);text-decoration: none;"><i
+                                class="fa fa-phone mr-2"></i>+27785068977</a></p>
+                    <p><a href="mailto:info@algopump.co.za"
+                            style="color: rgba(255, 255, 255, 0.5);text-decoration: none;"><i
+                                class="fa fa-envelope mr-2"></i>info@algopump.co.za</a></p>
+                    <div class="d-flex justify-content-start mt-4 social-icons ">
+
+                        <a class="text-white mr-4" href="https://facebook.com">
+                            <i class="fab fa-2x fa-facebook-f"></i>
+                        </a>
+                        <a class="text-white mr-4" href="https://twitter.com">
+                            <i class="fab fa-2x fa-twitter"></i>
+                        </a>
+                        <a class="text-white mr-4" href="https://linkedin.com">
+                            <i class="fab fa-2x fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-white mr-4" href="https://instagram.com">
+                            <i class="fab fa-2x fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h3 class="text-white mb-4">Our Products</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white-50 mb-2" href="#products"><i class="fa fa-angle-right mr-2"></i>SS
+                            Submersible
+                            Pumps</a>
+                        <a class="text-white-50 mb-2" href="#products"><i class="fa fa-angle-right mr-2"></i>Submersible
+                            Motors</a>
+                        <a class="text-white-50 mb-2" href="#products"><i class="fa fa-angle-right mr-2"></i>High
+                            Pressure
+                            pumps</a>
+                        <a class="text-white-50 mb-2" href="#products"><i class="fa fa-angle-right mr-2"></i>uPVC Column
+                            Pipes</a>
+                        <a class="text-white-50" href="#products"><i class="fa fa-angle-right mr-2"></i>Submersible
+                            FlatCable</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <h3 class="text-white mb-4">Quick Links</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                        <a class="text-white-50 mb-2" href="#about"><i class="fa fa-angle-right mr-2"></i>About Us</a>
+                        <a class="text-white-50 mb-2" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact
+                            Us</a>
+                        <!-- <a class="text-white-50 mb-2" href=""><i
+                            class="fa fa-angle-right mr-2"></i>Testimonial</a> -->
+                        <a class="text-white-50" href="#products"><i class="fa fa-angle-right mr-2"></i>Our Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer text-white-50 border-top py-4"
+        style="border-color: rgba(256, 256, 256, .1) !important;background: rgb(1 38 140);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p class="m-0">Copyright &copy; <a class="text-white" href="#">Algo</a>. All Rights Reserved.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            const loading = document.getElementById('loading');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    // Show loading spinner
+                    loading.style.display = 'block';
+
+                    // Hide all products
+                    productCards.forEach(card => {
+                        card.style.display = 'none';
+                    });
+
+                    // Filter logic with a slight delay to show loading effect
+                    setTimeout(() => {
+                        const category = button.getAttribute('data-category');
+
+                        productCards.forEach(card => {
+                            if (category === 'all' || card.getAttribute('data-category') === category) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+
+                        // Hide loading spinner
+                        loading.style.display = 'none';
+                    }, 500);
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                // Show loading spinner
+                loading.style.display = 'block';
+
+                // Reset filters
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                filterButtons[0].classList.add('active'); // Select "All Products"
+
+                setTimeout(() => {
+                    productCards.forEach(card => {
+                        const title = card.querySelector('.product-title').textContent.toLowerCase();
+                        const category = card.querySelector('.product-category').textContent.toLowerCase();
+
+                        if (title.includes(searchTerm) || category.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Hide loading spinner
+                    loading.style.display = 'none';
+                }, 500);
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Back to top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Image modal functionality
+            const productImages = document.querySelectorAll('.product-img-container img');
+
+            productImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    // Create modal elements
+                    const modalOverlay = document.createElement('div');
+                    modalOverlay.style.position = 'fixed';
+                    modalOverlay.style.top = '0';
+                    modalOverlay.style.left = '0';
+                    modalOverlay.style.width = '100%';
+                    modalOverlay.style.height = '100%';
+                    modalOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                    modalOverlay.style.display = 'flex';
+                    modalOverlay.style.justifyContent = 'center';
+                    modalOverlay.style.alignItems = 'center';
+                    modalOverlay.style.zIndex = '2000';
+                    modalOverlay.style.cursor = 'pointer';
+
+                    const modalImg = document.createElement('img');
+                    modalImg.src = img.src;
+                    modalImg.style.maxWidth = '90%';
+                    modalImg.style.maxHeight = '90%';
+                    modalImg.style.objectFit = 'contain';
+                    modalImg.style.border = '3px solid white';
+                    modalImg.style.borderRadius = '5px';
+                    modalImg.style.cursor = 'default';
+
+                    const closeButton = document.createElement('span');
+                    closeButton.innerHTML = '&times;';
+                    closeButton.style.position = 'absolute';
+                    closeButton.style.top = '20px';
+                    closeButton.style.right = '30px';
+                    closeButton.style.color = 'white';
+                    closeButton.style.fontSize = '40px';
+                    closeButton.style.fontWeight = 'bold';
+                    closeButton.style.cursor = 'pointer';
+
+                    // Append to document
+                    modalOverlay.appendChild(modalImg);
+                    modalOverlay.appendChild(closeButton);
+                    document.body.appendChild(modalOverlay);
+
+                    // Prevent scrolling when modal is open
+                    document.body.style.overflow = 'hidden';
+
+                    // Close modal event listeners
+                    closeButton.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        document.body.removeChild(modalOverlay);
+                        document.body.style.overflow = 'auto';
+                    });
+
+                    modalOverlay.addEventListener('click', () => {
+                        document.body.removeChild(modalOverlay);
+                        document.body.style.overflow = 'auto';
+                    });
+
+                    modalImg.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                    });
+                });
+
+                // Add pointer cursor to indicate clickability
+                img.style.cursor = 'pointer';
+            });
+
+            // View Details button functionality
+            const detailButtons = document.querySelectorAll('.btn-details');
+
+            detailButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productCard = button.closest('.product-card');
+                    const productTitle = productCard.querySelector('.product-title').textContent;
+                    const productCategory = productCard.querySelector('.product-category').textContent;
+                    const productImg = productCard.querySelector('img').src;
+
+                    // Create modal elements
+                    const modalOverlay = document.createElement('div');
+                    modalOverlay.style.position = 'fixed';
+                    modalOverlay.style.top = '0';
+                    modalOverlay.style.left = '0';
+                    modalOverlay.style.width = '100%';
+                    modalOverlay.style.height = '100%';
+                    modalOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                    modalOverlay.style.display = 'flex';
+                    modalOverlay.style.justifyContent = 'center';
+                    modalOverlay.style.alignItems = 'center';
+                    modalOverlay.style.zIndex = '2000';
+
+                    const modalContent = document.createElement('div');
+                    modalContent.style.backgroundColor = 'white';
+                    modalContent.style.padding = '30px';
+                    modalContent.style.borderRadius = '5px';
+                    modalContent.style.maxWidth = '600px';
+                    modalContent.style.width = '90%';
+                    modalContent.style.maxHeight = '90%';
+                    modalContent.style.overflow = 'auto';
+                    modalContent.style.position = 'relative';
+
+                    const closeButton = document.createElement('span');
+                    closeButton.innerHTML = '&times;';
+                    closeButton.style.position = 'absolute';
+                    closeButton.style.top = '10px';
+                    closeButton.style.right = '15px';
+                    closeButton.style.color = '#000';
+                    closeButton.style.fontSize = '30px';
+                    closeButton.style.fontWeight = 'bold';
+                    closeButton.style.cursor = 'pointer';
+
+                    // Create product details content
+                    modalContent.innerHTML = `
+                <div class="text-center mb-4">
+                    <img src="${productImg}" alt="${productTitle}" style="max-height: 200px; max-width: 100%; object-fit: contain;">
+                </div>
+                <h3 class="mb-3">${productTitle}</h3>
+                <p>${productCategory}</p>
+                <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit.</p>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary fs-5"><i class="fas fa-star"></i> 4.8/5</span>
+                    <span class="badge bg-success p-2">In Stock</span>
+                </div>
+                <h5 class="mb-3">Key Features:</h5>
+                <ul>
+                    <li>Premium quality materials</li>
+                    <li>Long lasting durability</li>
+                    <li>Advanced technology integration</li>
+                    <li>Energy efficient design</li>
+                </ul>
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="contact.html"><button class="btn btn-primary">Contact Us</button></a>
+                    
+                </div>
+            `;
+
+                    // Append to document
+                    modalContent.appendChild(closeButton);
+                    modalOverlay.appendChild(modalContent);
+                    document.body.appendChild(modalOverlay);
+
+                    // Prevent scrolling when modal is open
+                    document.body.style.overflow = 'hidden';
+
+                    // Close modal event listener
+                    closeButton.addEventListener('click', () => {
+                        document.body.removeChild(modalOverlay);
+                        document.body.style.overflow = 'auto';
+                    });
+
+                    modalOverlay.addEventListener('click', (e) => {
+                        if (e.target === modalOverlay) {
+                            document.body.removeChild(modalOverlay);
+                            document.body.style.overflow = 'auto';
+                        }
+                    });
+                });
+            });
+
+            // Simulate product hover effect for touch devices
+            if ('ontouchstart' in window) {
+                productCards.forEach(card => {
+                    card.addEventListener('touchstart', () => {
+                        // Remove hover class from all cards
+                        productCards.forEach(c => c.classList.remove('touch-hover'));
+                        // Add hover class to current card
+                        card.classList.add('touch-hover');
+                    });
+                });
+            }
+
+           
+
+            // NEW CODE: Lazy Loading images
+            const lazyImages = document.querySelectorAll('.product-img-container img');
+
+            // Create an Intersection Observer
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+
+                        // Add loaded class for fade-in effect
+                        img.classList.add('lazy-load');
+
+                        // Set the src attribute (in a real implementation, you would 
+                        // replace a data-src with the actual src)
+                        // For this demo, we'll just simulate by adding the loaded class
+                        setTimeout(() => {
+                            img.classList.add('loaded');
+                        }, 100);
+
+                        // Stop observing this image
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // trigger when 10% of the image is visible
+            });
+
+            // Observe each image
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            // NEW CODE: Pagination functionality
+            const paginationLinks = document.querySelectorAll('.pagination .page-link');
+            const productsPerPage = 8; // Number of products to show per page
+            let currentPage = 1;
+
+            // Function to show products for a specific page
+            function showProductsForPage(page) {
+                // Show loading spinner
+                loading.style.display = 'block';
+
+                // Calculate start and end indices
+                const startIndex = (page - 1) * productsPerPage;
+                const endIndex = startIndex + productsPerPage;
+
+                setTimeout(() => {
+                    // Hide all products first
+                    productCards.forEach((card, index) => {
+                        if (index >= startIndex && index < endIndex) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Update active page in pagination
+                    paginationLinks.forEach(link => {
+                        const pageNum = link.textContent;
+                        if (!isNaN(pageNum) && parseInt(pageNum) === page) {
+                            link.parentElement.classList.add('active');
+                        } else if (!isNaN(pageNum)) {
+                            link.parentElement.classList.remove('active');
+                        }
+                    });
+
+                    // Update previous/next buttons
+                    const prevButton = document.querySelector('.pagination .page-item:first-child');
+                    const nextButton = document.querySelector('.pagination .page-item:last-child');
+
+                    if (page === 1) {
+                        prevButton.classList.add('disabled');
+                    } else {
+                        prevButton.classList.remove('disabled');
+                    }
+
+                    const totalPages = Math.ceil(productCards.length / productsPerPage);
+                    if (page === totalPages) {
+                        nextButton.classList.add('disabled');
+                    } else {
+                        nextButton.classList.remove('disabled');
+                    }
+
+                    // Hide loading spinner
+                    loading.style.display = 'none';
+
+                    // Scroll to top of gallery
+                    document.querySelector('.gallery-container').scrollIntoView({ behavior: 'smooth' });
+
+                    // Update current page
+                    currentPage = page;
+                }, 500);
+            }
+
+            // Add click event to pagination links
+            paginationLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    const pageText = link.textContent.trim();
+
+                    if (pageText === '«') {
+                        // Previous page
+                        if (currentPage > 1) {
+                            showProductsForPage(currentPage - 1);
+                        }
+                    } else if (pageText === '»') {
+                        // Next page
+                        const totalPages = Math.ceil(productCards.length / productsPerPage);
+                        if (currentPage < totalPages) {
+                            showProductsForPage(currentPage + 1);
+                        }
+                    } else {
+                        // Specific page number
+                        const pageNum = parseInt(pageText);
+                        if (!isNaN(pageNum)) {
+                            showProductsForPage(pageNum);
+                        }
+                    }
+                });
+            });
+
+            // Initialize with first page
+            showProductsForPage(1);
+
+            // Add animation delay to products for staggered effect
+            productCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.05}s`;
+            });
+        });
+        function googleTranslateElementInit() {
+    new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+  }
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".lang-menu li").forEach(item => {
+      item.addEventListener("click", function () {
+        const language = this.getAttribute("data-lang");
+        const interval = setInterval(() => {
+          const googleTranslateCombo = document.querySelector(".goog-te-combo");
+
+          if (googleTranslateCombo) {
+            googleTranslateCombo.value = language;
+            googleTranslateCombo.dispatchEvent(new Event("change"));
+
+            // Animation
+            document.body.classList.add("fade-effect");
+            setTimeout(() => document.body.classList.remove("fade-effect"), 800);
+
+            clearInterval(interval);
+          }
+        }, 100);
+      });
+    });
+  });
+    </script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>
