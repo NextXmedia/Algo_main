@@ -1,0 +1,16 @@
+@media (max-width: 1025px){
+    .btn-selector{
+        display: none !important;
+    }
+}
+
+@media (max-width: 600px){
+    .owl-stage-outer {
+    padding: 20px !important;
+}
+.carousel-content{
+    bottom: 0 !important;
+    width: 90% !important;
+}
+
+}
