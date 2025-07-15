@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="title" content="Submersible Pump Manufacturers | India's #1 Submersible Pumps"> -->
+    <title>Highpressure & Centrifugal pumps | Algo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" type="icon" href="assets/Img/logo o.png">
+    <link rel="stylesheet" href="assets/Css/Style.css">
+      <!-- Icons Cdns -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary-color: #61A375;
+            --secondary-color: #61A375;
+            --dark-bg: #f2f7fd;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .page-header {
+            background: #61A375;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 1rem 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ------------ CARD HOVER EFFECT ------------ */
+        .card-item {
+            position: relative;
+            /* height: 450px; */
+           border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .card-item img {
+            width: 100%;
+            /* height: 100%; */
+            /* height: 320px; */
+            object-position: bottom;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* opacity: 0; */
+            padding: 10px;
+            transition: opacity .3s ease;
+        }
+
+
+        .rd-btn {
+            position: relative;
+            border: 1px solid #61A375;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(5, 52, 0);
+            background: #25e45f42;
+        }
+
+        .rd-btn:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: #61A375;
+            top: 0;
+            left: 0;
+            position: absolute;
+            scale: 0;
+            opacity: 0;
+            transition: .3s ease-in-out;
+        }
+
+        .rd-btn:hover:before{
+            scale: 1;
+            opacity: 1;
+            transition: .3s ease-in-out;
+        }
+        .rd-btn:hover {
+            border: 1px solid #61A375;
+            transition: .3s ease-in-out;
+            color: white;
+
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Splash Screen -->
+  <div id="splash-screen">
+        <div class="sss">
+            <img id="splash-logo" src="assets/Img/logo.png">
+        </div>
+    </div>
+
+
+     <!-- Main Navigation with Offcanvas -->
+  <nav style="top: 0px;" class="navbar navbar-expand-lg bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand logo-container" href="#">
+        <img loading="lazy" src="./assets/Img/logo.png" alt="Algo Logo">
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <img loading="lazy" width="150px" src="./assets/Img/logo.png" alt="Algo Logo">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav mx-auto gap-4">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" id="mobileDrop1">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about" id="mobileDrop2">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                data-bs-auto-close="outside">
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Residential Pumps.html">Residential Pumps</a></li>
+
+                <!-- Submersible Pumps with submenu -->
+                <li class="dropend dropdown">
+                  <a class="dropdown-item  di-1" href="#" data-bs-toggle="dropdown">
+                    Submersible Pumps <i class="bi bi-chevron-right ms-3"></i>
+                  </a>
+                  <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="4xora.html">4'' XORA</a></li>
+                    <li><a class="dropdown-item di-2" href="4alinox.html">4'' ALINOX</a></li>
+                    <li><a class="dropdown-item di-3" href="6anilox.html">6'' ALINOX</a></li>
+                    <li><a class="dropdown-item di-4" href="8anilox.html">8'' ALINOX</a></li>
+                    <li><a class="dropdown-item di-5" href="10anilox.html ">10'' ALINOX</a></li>
+                  </ul>
+                </li>
+
+                <!-- Submersible Motors with submenu -->
+                <li class="dropend dropdown">
+                  <a class="dropdown-item di-2" href="submersible Motors.html" >
+                    Submersible Motors
+                     <!-- <i class="bi bi-chevron-right ms-3"></i> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="#">4" Oil Filled</a></li>
+                    <li><a class="dropdown-item di-2" href="#">4" Water Filled</a></li>
+                    <li><a class="dropdown-item di-3" href="#">PM Series</a></li>
+                  </ul> -->
+                </li>
+
+                <!-- Surface Pumps with submenu -->
+                <li class="dropend dropdown">
+                  <a class="dropdown-item  di-3" href="Highpressure & Centrifugal pumps.html" >
+                    Highpressure & Centrifugal pumps
+                    <!-- <i class="bi bi-chevron-right ms-3"></i> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="#">Booster Pump</a></li>
+                    <li><a class="dropdown-item di-2" href="#">Centrifugal Pump</a></li>
+                  </ul> -->
+                </li>
+                <li class="dropend dropdown">
+                  <a class="dropdown-item  di-4" href="West Water & Dewatering Pumps.html" >
+                    Waste Water & Dewatering Pumps 
+                    <!-- <i class="bi bi-chevron-right ms-3"></i> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="#">Booster Pump</a></li>
+                    <li><a class="dropdown-item di-2" href="#">Centrifugal Pump</a></li>
+                  </ul> -->
+                </li>
+
+                <li><a class="dropdown-item di-5" href="assets/6. Accessories/Accessories.pdf">Accessories</a></li>
+                <li><a class="dropdown-item di-6" href="index.html#catalogue">uPVC Column Pipes</a></li>
+                <li><a class="dropdown-item di-7" href="index.html#catalogue">Submersible Cables</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#products" id="mobileDrop2">Application</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacts</a>
+            </li>
+          </ul>
+
+          <div class="contactright gap-3 d-flex align-items-center">
+            <div class="lang-switcher">
+              <div id="google_translate_element" style="display: none;"></div>
+
+              <button style="z-index: 11111;" class="lang-btn btn btn-primary mt-md-2 mt-3 py-2 px-4">
+                <i class="bi bi-globe-asia-australia"></i> Language
+              </button>
+              <ul class="lang-menu">
+                <li data-lang="en"><img loading="lazy" src="https://flagcdn.com/w40/gb.png"> English</li>
+                <li data-lang="af"><img loading="lazy" src="https://flagcdn.com/w40/za.png"> Afrikaans</li>
+                <li data-lang="it"><img loading="lazy" src="https://flagcdn.com/w40/it.png"> Italian</li>
+               <li data-lang="pt">
+                  <img loading="lazy" src="https://flagcdn.com/w40/pt.png" alt="Portuguese Flag"> Portuguese
+                </li>
+                <li data-lang="fr">
+                  <img loading="lazy" src="https://flagcdn.com/w40/fr.png" alt="French Flag"> French
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const BREAKPOINT = 992;
+
+      // Desktop hover functionality
+      if (window.innerWidth >= BREAKPOINT) {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          const toggle = dropdown.querySelector('[data-bs-toggle="dropdown"]');
+          if (!toggle) return;
+
+          dropdown.addEventListener('mouseenter', () => {
+            new bootstrap.Dropdown(toggle).show();
+          });
+
+          dropdown.addEventListener('mouseleave', () => {
+            new bootstrap.Dropdown(toggle).hide();
+          });
+        });
+      }
+
+    });
+  </script>
+
+
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="text-center text-white mb-2">Highpressure & Centrifugal pumps</h1>
+            <!-- <p class="text-center text-light fs-5 mb-0">Explore Our Premium Products</p> -->
+        </div>
+    </header>
+
+    <div class="container gallery-container">
+        <!-- Search Bar -->
+        <!-- <div class="search-container">
+            <div class="input-group mb-4 d-flex align-items-end">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
+                <button class="btn btn-primary" type="button" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div> -->
+
+        <!-- Category Filters -->
+        <!-- <div class="filters">
+            <h5 class="text-dark mb-3">Filter by Category:</h5>
+            <div class="d-flex flex-wrap">
+                <button class="btn btn-outline-dark filter-btn active" data-category="all">All Products</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="pipes">Pipes</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="motors">Motors</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="pumps">Pumps</button>
+                <button class="btn btn-outline-dark filter-btn" data-category="others">Others</button>
+            </div>
+        </div> -->
+
+
+
+
+    </div>
+    <a href="https://wa.me/+27733576033">
+        <button class="w-Btn">
+            <div class="sign">
+                <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                    <path
+                        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+                    </path>
+                </svg>
+            </div>
+
+            <div class="text">Whatsapp</div>
+        </button>
+    </a>
+
+
+    <div class="container py-4">
+        <div class="row" id="cardContainer"></div>
+    </div>
+    <a href='assets/4. Highpressure & Centrifugal pumps/'></a>
+    <script>
+        const cardData = [
+            
+            {
+                title: "Card Two",
+                image: "assets/4. Highpressure & Centrifugal pumps/1. zala max .jpg",
+                link: "assets/4. Highpressure & Centrifugal pumps/1. zala max.pdf"
+            },
+            {
+                title: "Card Four", 
+                image: "assets/4. Highpressure & Centrifugal pumps/3. BM Series.jpg",
+                link: "assets/4. Highpressure & Centrifugal pumps/3. BM SERIES.pdf"
+            },  
+            {
+                title: "Card Five",
+                image: "assets/4. Highpressure & Centrifugal pumps/4. BR SERIES.jpg",
+                link: "assets/4. Highpressure & Centrifugal pumps/4. BR SERIES.pdf"
+            },
+            {
+                title: "Card One",
+                image: "assets/4. Highpressure & Centrifugal pumps/5. CM SERIES.jpg",
+                link: "assets/4. Highpressure & Centrifugal pumps/5. CM SERIES.pdf"
+            },
+            {
+                title: "Card Six",
+                image: "assets/4. Highpressure & Centrifugal pumps/6. CMS SERIES.jpg",
+                link: "assets/4. Highpressure & Centrifugal pumps/6. CMS SERIES.pdf"
+            },
+            
+        ];
+
+        const container = document.getElementById("cardContainer");
+
+        cardData.map(item => {
+            const col = document.createElement("div");
+            col.className = "col-12 col-sm-6 col-lg-3 mb-4";
+
+            col.innerHTML = `
+        <div class="card-item border shadow-sm">
+          <img class="img-fluid" src="${item.image}" alt="${item.title}" loading="lazy">
+          
+          <!-- overlay & center button -->
+          <div class="card-overlay">
+            <a href="${item.link}" target="_blank" class="btn px-4 rd-btn" ><span style="z-index:1111;">View</span></a>
+          </div>
+        </div>
+      `;
+
+            container.appendChild(col);
+        });
+    </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Company Header -->
+      <div class="company-header">
+        <h1 class="company-logo">ALGO GROUP OF COMPANIES</h1>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <div class="row">
+          <!-- Company Information -->
+          <div class=" col-md-12">
+            <div class="footer-section">
+              <!-- <h3 class="section-title">Company Information</h3> -->
+              <div class="company-info">
+                <h2 class="company-name">ALGO FLUID TECHNIKS SA (PTY) LTD.</h2>
+
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt contact-icon"></i> -->
+                    <div class="contact-text text-center">
+                      Unit 20 Mifa Industrial Park,
+                      399 George Street Randjies Park,<br>
+                      Midrand - 1685, Johannesburg,
+                      Gauteng, South Africa <br>
+                      Tel: <a href="tel:+27731604799" class="contact-link">+27 73 160 4799</a> / <a
+                        href="tel:+27785068977" class="contact-link">+27 78 506 8977</a> | Email: <a href="mailto:info@algopump.co.za" class="contact-link">info@algopump.co.za</a> <br>
+                      <a href="https://www.algopump.co.za" class="contact-link" target="_blank">www.algopump.co.za</a>
+
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt contact-icon"></i> -->
+                    <div class="contact-text text-center">
+                    
+                    <strong> Ahmedabad | Mumbai | Coimbatore | Pune | Secunderabad | Kollam</strong>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt contact-icon"></i> -->
+                    <div class="contact-text text-center">
+                    
+                    <strong> INTL. STOCK HUBS : NAIROBI - KENYA, VALENCIA - SPAIN </strong>
+                    </div>
+                  </li>
+
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Locations & Social -->
+          <div class="col-md-12">
+            <div class="footer-section">
+              
+
+                <!-- Social Media -->
+                <div class="footer-section mt-0">
+                  <div class="social-section">
+                    <!-- <p style="color: var(--text-secondary); margin-bottom: 0;">Follow us for updates and industry insights</p> -->
+                    <div class="social-links pt-0 my-0">
+                      <span class="m-0 d-flex align-items-center justify-content-center">
+                        <h5 class="mb-0">Social Links :</h5>
+                      </span>
+                      <a href="#" class="social-link" title="Facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                      <a href="#" class="social-link" title="Twitter" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a href="#" class="social-link" title="Instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="#" class="social-link" title="YouTube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <p class="mx-auto">&copy; 2025 <strong>Algo</strong> Group of Companies. All rights reserved.</p>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+    
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- <script src="assets/js/script.js"></script>  -->
+</body>
+
+</html>
