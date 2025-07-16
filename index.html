@@ -1,0 +1,2097 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Web Title -->
+  <title>Algo - Pumping Solution</title>
+  <!-- Favicon Icon -->
+  <link rel="icon" type="icon" href="assets/Img/logo o.png">
+  <!-- Bootstrap cdn link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <!-- Custom Css -->
+  <link rel="stylesheet" href="assets/Css/responsive.css">
+  <link rel="stylesheet" href="assets/Css/Style.css">
+  <link rel="stylesheet" href="assets/Css/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- aos -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    .vertical-swiper {
+      height: 300px;
+      /* Adjust based on your design */
+      width: 90%;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product-cards {
+      text-align: center;
+      color: white;
+    }
+  </style>
+
+  <!-- Icons Cdns -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+  <!-- Splash Screen -->
+  <!-- <div id="splash-screen">
+        <div class="sss">
+            <img id="splash-logo" src="assets/Img/logo.png">
+        </div>
+    </div> -->
+
+
+  <a href="https://wa.me/+27733576033">
+    <button class="w-Btn">
+      <div class="sign">
+        <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
+          </path>
+        </svg>
+      </div>
+
+      <div class="text">Whatsapp</div>
+    </button>
+  </a>
+
+
+  <!-- top-nav -->
+  <!-- <div style="top: 0;background-color: rgb(1 38 140);" class="top-bar sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col text-end social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="btn btn-selector d-lg-inline d-none">PUMP SELECTOR</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+  <!-- Main Navigation with Offcanvas -->
+  <nav style="top: 0px;" class="navbar navbar-expand-lg bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand logo-container" href="#">
+        <img loading="lazy" src="./assets/Img/logo.png" alt="Algo Logo">
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <img loading="lazy" width="150px" src="./assets/Img/logo.png" alt="Algo Logo">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav mx-auto gap-4">
+            <li class="nav-item">
+              <a class="nav-link" href="#top" id="mobileDrop1">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" id="mobileDrop2">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                data-bs-auto-close="outside">
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="Residential Pumps.html">Residential Pumps</a></li>
+
+                <!-- Submersible Pumps with submenu -->
+                <li class="dropend dropdown">
+                  <a class="dropdown-item  di-1" href="#" data-bs-toggle="dropdown">
+                    Submersible Pumps <i class="bi bi-chevron-right ms-3"></i>
+                  </a>
+                  <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="4xora.html">4'' XORA</a></li>
+                    <li><a class="dropdown-item di-2" href="4alinox.html">4'' ALINOX</a></li>
+                    <li><a class="dropdown-item di-3" href="6anilox.html">6'' ALINOX</a></li>
+                    <li><a class="dropdown-item di-4" href="8anilox.html">8'' ALINOX</a></li>
+                    <li><a class="dropdown-item di-5" href="10anilox.html ">10'' ALINOX</a></li>
+                  </ul>
+                </li>
+
+                <!-- Submersible Motors with submenu -->
+                <li class="dropend dropdown">
+                  <a class="dropdown-item di-2" href="submersible Motors.html">
+                    Submersible Motors
+                    <!-- <i class="bi bi-chevron-right ms-3"></i> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="#">4" Oil Filled</a></li>
+                    <li><a class="dropdown-item di-2" href="#">4" Water Filled</a></li>
+                    <li><a class="dropdown-item di-3" href="#">PM Series</a></li>
+                  </ul> -->
+                </li>
+
+                <!-- Surface Pumps with submenu -->
+                <li class="dropend dropdown">
+                  <a class="dropdown-item  di-3" href="Highpressure & Centrifugal pumps.html">
+                    Highpressure & Centrifugal pumps
+                    <!-- <i class="bi bi-chevron-right ms-3"></i> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="#">Booster Pump</a></li>
+                    <li><a class="dropdown-item di-2" href="#">Centrifugal Pump</a></li>
+                  </ul> -->
+                </li>
+                <li class="dropend dropdown">
+                  <a class="dropdown-item  di-4" href="West Water & Dewatering Pumps.html">
+                    Waste Water & Dewatering Pumps
+                    <!-- <i class="bi bi-chevron-right ms-3"></i> -->
+                  </a>
+                  <!-- <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item di-1" href="#">Booster Pump</a></li>
+                    <li><a class="dropdown-item di-2" href="#">Centrifugal Pump</a></li>
+                  </ul> -->
+                </li>
+
+                <li><a class="dropdown-item di-5" href="assets/6. Accessories/Accessories.pdf">Accessories</a></li>
+                <li><a class="dropdown-item di-6" href="#catalogue">uPVC Column Pipes</a></li>
+                <li><a class="dropdown-item di-7" href="#catalogue">Submersible Cables</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products" id="mobileDrop2">Application</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contacts</a>
+            </li>
+          </ul>
+
+          <div class="contactright gap-3 d-flex align-items-center">
+            <div class="lang-switcher">
+              <div id="google_translate_element" style="display: none;"></div>
+
+              <button style="z-index: 11111;" class="lang-btn btn btn-primary mt-md-2 mt-3 py-2 px-4">
+                <i class="bi bi-globe-asia-australia"></i> Language
+              </button>
+              <ul class="lang-menu">
+                <li data-lang="en"><img loading="lazy" src="https://flagcdn.com/w40/gb.png"> English</li>
+                <li data-lang="af"><img loading="lazy" src="https://flagcdn.com/w40/za.png"> Afrikaans</li>
+                <li data-lang="it"><img loading="lazy" src="https://flagcdn.com/w40/it.png"> Italian</li>
+                <li data-lang="pt">
+                  <img loading="lazy" src="https://flagcdn.com/w40/pt.png" alt="Portuguese Flag"> Portuguese
+                </li>
+                <li data-lang="fr">
+                  <img loading="lazy" src="https://flagcdn.com/w40/fr.png" alt="French Flag"> French
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const BREAKPOINT = 992;
+
+      // Desktop hover functionality
+      if (window.innerWidth >= BREAKPOINT) {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          const toggle = dropdown.querySelector('[data-bs-toggle="dropdown"]');
+          if (!toggle) return;
+
+          dropdown.addEventListener('mouseenter', () => {
+            new bootstrap.Dropdown(toggle).show();
+          });
+
+          dropdown.addEventListener('mouseleave', () => {
+            new bootstrap.Dropdown(toggle).hide();
+          });
+        });
+      }
+
+    });
+  </script>
+  <!--  -->
+  <!-- Hero Section with Video Background -->
+  <section class="hero-section m-0" id="top">
+    <!-- Video Background -->
+
+    <!-- First Swiper -->
+    <div style="height: 100%;"
+      class="swiper mySwiper1  position-relative d-flex align-items-center justify-content-center">
+      <!-- <img class="welcome-heading hero-logo" style="z-index: 11111;width: 280px;position: absolute;"
+                src="assets/Img/algo white.png" alt=""> -->
+      <div class="swiper-wrapper ">
+
+        <div class="swiper-slide">
+          <div style="height: 100%;"
+            class="w-100 position-relative d-flex flex-md-row flex-column align-items-center justify-content-between s-video slider-main s2">
+            <!-- video -->
+            <video autoplay loop muted id="hero-video"
+              style="width: 100%;height: 100% ;object-fit: cover;position: absolute;top: 0;left: 0;">
+              <source src="assets/Img/1851190-uhd_3840_2160_25fps (1).mp4" type="video/mp4">
+            </video>
+            <a href="#ebara" class="m-0">
+              <!-- <h2 style="top: 20px;right: 20px;" class="position-absolute her0-tt">We pride ourselves on personalized services to our customers in pre and post-sales.</h2> -->
+              <div class="ms-sm-5 mt-md-0 mt-5 ps-sm-5">
+
+                <img loading="lazy" class=" mainlogo  mlogo2 ms-md-5 ms-0" style="width: 300px; height: auto;"
+                  src="assets/Img/ebara-logo.png" alt="">
+
+              </div>
+            </a>
+            <div class="me-sm-5 pe-sm-5">
+              <img loading="lazy" class="position mainlogo me-md-5 me-0 mt-md-0 mt-5 "
+                style="width: 300px; height: auto;" src="assets/Img/algo-slide-logo.png" alt="">
+            </div>
+
+          </div>
+        </div>
+        <div class="swiper-slide">
+
+
+
+
+          <div style="background-image: url(assets/Img/slider/slide2.jpg);background-size: cover;"
+            class="w-100 position-relative row slider-main s2">
+
+            <div class="col-md-6 slider-right d-flex  align-items-end ">
+              <img loading="lazy" style="object-fit: contain;width: 80%;height: 86%;margin-left: 100px;"
+                class="mb-3  animate-img" data-aos="fade-up" data-aos-duration="1200"
+                src="assets/Img/slider/slide-1-p.png" alt="">
+            </div>
+            <div
+              class="col-md-6 slider-left mt-sm-0 p-md-auto p-0 d-flex align-items-start justify-content-center flex-column ps-4 position-relative">
+
+              <h1 class="text-white fw-bold animate-me" data-aos="fade-right" data-aos-duration="1200">
+                Deep Well
+                Submersible</h1>
+              <h1 style="animation-duration: 2s;" class="text-white fw-bold animate-me" data-aos="fade-right"
+                data-aos-duration="1200" data-aos-delay="200" data-aos-offset="100">Pumps & Motors</h1>
+              <div style="bottom: 0 !important;right: 0;flex-direction: column;"
+                class="certification-row d-flex align-items-end justify-content-between position-absolute bottom-0 right-0 m-0 mb-0">
+                <img loading="lazy" style="width: 120px;height: 60px;object-fit: contain;"
+                  src="assets/Img/CE - logo.png" alt="CE Certified" class="cert-icon mb-sm-3 mt-md-0 mt-4">
+                <span class="iso-box fw-normal d-flex">AN ISO 9001 & 14001 COMPANY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" style="overflow: hidden;">
+
+
+          <div style="background-image: url(assets/Img/slider/slider-2-bg\ copy.jpg);background-size: cover;"
+            class="w-100 position-relative row slider-main  p-0 ">
+            <div
+              class="col-md-6 slider-right d-flex align-items-end pt-md-3 px-0 position-relative  order-md-0 order-1">
+
+              <img loading="lazy"
+                style="object-fit: contain;overflow: hidden; width: 100%;height: 100%;object-position: top;left: 0;bottom: 0;margin-bottom: -0px !important;margin-left: -100px !important;"
+                class="mb-0 animate-me" data-aos="fade-up" data-aos-duration="1200"
+                src="assets/Img/slider/sider-2-p-1.png" alt="">
+            </div>
+            <div
+              class="col-md-6 slider-left d-flex align-items-end justify-content-between pe-0 position-relative  flex-column ps-4 order-md-1 order-0">
+
+              <div class="right-banner-section  mt-4 d-flex flex-column justify-content-center animate-left"
+                data-aos="fade-left" data-aos-duration="1000">
+                <div class="text-content">
+                  <h2 style="font-size: 4.4vw;" class="banner-title display-1 text-start">uPVC Column Pipes<br>&
+                    Adaptors</h2>
+                </div>
+
+              </div>
+              <img class="animate-left" style="width: 250px;object-fit: contain;"
+                src="assets/Img/slider/sider-2-p-2.png" alt="">
+
+              <div style="bottom: 0 !important;right: 0;flex-direction: column;"
+                class="certification-row d-flex align-items-end justify-content-between position bottom-0 right-0 m-0 mb-0">
+                <img loading="lazy" style="width: 120px;height: 60px;object-fit: contain;"
+                  src="assets/Img/CE - logo.png" alt="CE Certified" class="cert-icon mb-sm-3 mt-md-0 mt-4">
+                <span class="iso-box fw-normal">AN ISO 9001 & 14001 COMPANY</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="swiper-slide">
+
+          <div style="height: 100%;"
+            class="w-100 position-relative d-flex align-items-center justify-content-center flex-column slider-main">
+
+
+            <div style="background-image: url(assets/Img/slider/slide-2.png);background-size: cover;"
+              class="w-100 position-relative row slider-main s2 p-0">
+              <img loading="lazy" style="object-fit: cover;filter:drop-shadow(0 0 20px white);margin-top: 15px;"
+                data-aos="fade-up" data-aos-duration="1300" class="myimg d-md-inline d-none animate-img ms-5"
+                src="assets/Img/slider/sider-3-p-1.png" alt="">
+
+              <img loading="lazy"
+                style="object-fit: contain !important;filter:drop-shadow(0 0 20px white);margin-top: 10px;"
+                data-aos="fade-up" data-aos-duration="1300" data-aos-delay="150"
+                class="myimg d-md-inline d-none animate-img" src="assets/Img/slider/sider-3-p-2.png" alt="">
+
+              <img loading="lazy"
+                style="object-fit: contain !important;filter:drop-shadow(0 0 20px white);margin-top: 10px;"
+                data-aos="fade-up" data-aos-duration="1300" data-aos-delay="200"
+                class="myimg d-md-inline d-none animate-img" src="assets/Img/slider/sider-3-p-3.png" alt="">
+
+              <img loading="lazy"
+                style="object-fit: contain !important;filter:drop-shadow(0 0 20px white);margin-top: 10px;"
+                data-aos="fade-up" data-aos-duration="1300" data-aos-delay="250"
+                class="myimg d-md-inline d-none animate-img" src="assets/Img/slider/sider-3-p-4.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;filter:drop-shadow(0 0 20px white)" data-aos="fade-up"
+                data-aos-duration="1300" data-aos-delay="300" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/slide-3-5.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;filter:drop-shadow(0 0 20px white)" data-aos="fade-up"
+                data-aos-duration="1300" data-aos-delay="350" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/slide-3-6.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;filter:drop-shadow(0 0 20px white)"
+                class="myimg d-md-inline d-none m-top animate-img" src="assets/Img/slider/slide-3-7.png" alt="">
+              <img loading="lazy" style="object-fit: contain;filter:drop-shadow(0 0 20px white)" data-aos="fade-up"
+                data-aos-duration="1300" data-aos-delay="400" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/slide-3-8.png" alt="">
+              <img loading="lazy" class="d-md-none d-flex animate-img"
+                style="width: 100%;object-fit:contain;height: 300px;filter:drop-shadow(0 0 20px white)"
+                src="assets/Img/slider/sider-3-p-res.png" alt="">
+              <img loading="lazy" class="d-md-none d-flex animate-img"
+                style="width: 100%;object-fit:contain;height: 160px;animation-duration: 1.3s;filter:drop-shadow(0 0 20px white)"
+                src="assets/Img/slider/slide-3-p-12.png" alt="">
+
+              <h2 class="me-text animate-left p-0" style="text-shadow: 0 3px 1px black !important;">High Pressure
+                Multistage
+                Pumps</h2>
+              <div style="bottom: 0 !important;right: 0;flex-direction: column;"
+                class="certification-row d-flex p-0 align-items-end justify-content-between position-absolute bottom-0 right-0 m-0 mb-0">
+                <img loading="lazy" style="width: 120px;height: 60px;object-fit: contain;"
+                  src="assets/Img/CE - logo.png" alt="CE Certified" class="cert-icon mb-sm-3 mt-md-0 mt-4">
+                <span style="width: auto;" class="iso-box fw-normal d-flex ">AN ISO 9001 & 14001 COMPANY</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+
+          <div style="height: 100%;"
+            class="w-100 position-relative d-flex align-items-center justify-content-center flex-column slider-main">
+
+
+
+            <div style="background-image: url(assets/Img/slider/lastslide.jpg);background-size: cover;"
+              class="w-100 position-relative row slider-main s2">
+              <img loading="lazy" style="object-fit: contain;width: 21% !important;height: auto;" data-aos="fade-up"
+                data-aos-duration="1300" class="myimg d-md-inline d-none animate-img ms-5"
+                src="assets/Img/slider/PNG 5.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain !important;width: 11% !important;height: auto !important; "
+                data-aos="
+                fade-up" data-aos-duration="1300" data-aos-delay="150" class="myimg d-md-inline d-none animate-img"
+                src="assets/Img/slider/PNG 6.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;" data-aos="fade-up" data-aos-duration="1300"
+                data-aos-delay="200" class="myimg d-md-inline d-none animate-img" src="assets/Img/slider/PNG 7.png"
+                alt="">
+
+              <img loading="lazy" style="object-fit: contain;width: 8% !important;height: auto !important; "
+                data-aos="fade-up" data-aos-duration="1300" data-aos-delay="250"
+                class="myimg d-md-inline d-none animate-img" src="assets/Img/slider/PNG 8.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;" data-aos="fade-up" data-aos-duration="1300"
+                data-aos-delay="300" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/PNG 9.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;" data-aos="fade-up" data-aos-duration="1300"
+                data-aos-delay="350" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/PNG 10.png" alt="">
+
+              <img loading="lazy" style="object-fit: contain;" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/PNG 11.png" alt="">
+              <img loading="lazy" style="object-fit: contain;" data-aos="fade-up" data-aos-duration="1300"
+                data-aos-delay="400" class="myimg d-md-inline d-none m-top animate-img"
+                src="assets/Img/slider/PNG 12.png" alt="">
+              <img loading="lazy" class="d-md-none d-flex animate-img"
+                style="width: 100%;object-fit:contain;height: 300px;" src="assets/Img/PNG 13.png" alt="">
+              <img loading="lazy" class="d-md-none d-flex animate-img"
+                style="width: 100%;object-fit:contain;height: 160px;animation-duration: 1.3s;"
+                src="assets/Img/PNG 14.png" alt="">
+
+              <h2 class="me-text animate-left right-banner-section2" style="right: 0 !important;">Dewatering &
+                Industrial Pumps</h2>
+
+              <div style="bottom: 0 !important;right: 0;"
+                class="certification-row d-md-flex d-none  p-0 align-items-end justify-content-end mt-5 position-absolute bottom-0 right-0 m-0 mb-0">
+                <img loading="lazy" style="width: 120px;height: 60px;object-fit: contain;"
+                  src="assets/Img/slider/cew.png" alt="CE Certified" class="cert-icon mt-4">
+                <span style="width: auto;" class="iso-box fw-normal d-flex ">AN ISO 9001 & 14001 COMPANY</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <div class="swiper-slide">Slide 1B</div> -->
+    </div>
+    <!-- navigation buttons -->
+    <div class="swiper-button-next swiper-btn  position-absolute d-md-flex d-none  " style="right: 0;"></div>
+    <div class="swiper-button-prev swiper-btn position-absolute d-md-flex d-none   " style="left: 0;"></div>
+    </div>
+
+
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <!-- <div class="text-center">
+                <h1 class="display-4 fw-bold mb-4">Water Pumping Solutions</h1>
+                <p class="lead mb-5">Quality pumps and motors for all your water management needs</p>
+                <a href="#" class="btn btn-primary me-3">Discover Products</a>
+                <a href="#" class="btn btn-outline-light">Contact Us</a>
+            </div> -->
+    </div>
+    <a href="#about">
+      <div class="arrow-down">
+        <i class="fas fa-chevron-down text-white"></i>
+      </div>
+    </a>
+
+  </section>
+
+
+
+  <!-- About Section -->
+
+  <div class="container-fluid py-md-5 py-3" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 pt-md-5">
+          <!-- <img style="width: 240px;" src="assets/Img/logo.png" alt="Algo Logo"> -->
+          <h1 style="color: #467fbd;" class="fw-bold"><span
+              style="width: 80px;height: 80px;border: 2px solid #467fbd;padding: 10px 15px;"><i
+                class="bi bi-bank2"></i></span> ALGO Profile</h1>
+          <p class="mb-3 mt-4">
+            ALGO positions itself as not just a pump manufacturing company but as a dependable, technologically sound
+            and one stop solution provider to meet the diverse needs of customers across the globe. Understanding the
+            need of efficient and cost effective pumping solutions and fluid management systems ALGO is established by
+            the veterans having more than 33 years of diversified experience.
+          </p>
+
+          <p class="mb-3">
+            To overcome the current challenges in providing energy efficient and complete pumping solutions and meet the
+            requirement of discerning customers ALGO is determined to offer technologically integrated and inventive
+            pumping systems & Solutions at affordable prices.
+          </p>
+
+          <p class="mb-3">
+            With the vast experience gained in both domestic and international markets ALGO products are designed and
+            produced with synergy of best in class technologies and processes with international standards. Most of its
+            products are ISI certified and manufacturing facilities are accredited with ISO 9001 & 14001 COMPANY
+          </p>
+          <p class="mb-3">
+            ALGO stays abreast of the major changes worldwide in terms of technology and processes. This combines with
+            the ability to understand customers' requirement allows for the development of products that meet the
+            challenges of tomorrow.
+          </p>
+
+          <p class="mb-3">
+            ALGO has comprehensive range of products to cater Residential, Agriculture, Building services, Industrial &
+            waste water segments. ALGO's highly qualified Engineers and technicians assure satisfactory service at all
+            time
+            The ability & Impetus of ALGO in product development, Pricing, Promotion, e-commerce strategies will result
+            in sustainable competitive advantages for all stake holders. We at ALGO always strive to focus on current
+            industry trend and meet the next generation pumping requirements.
+          </p>
+        </div>
+        <div class="col-lg-7 ">
+          <div class="vision-mission-section mt-4">
+            <h2 class="vision-mission-title flex-md-row flex-wrap">
+              <p class="d-flex flex-wrap align-items-center justify-content-center gap-2">
+                <span><i class="bi bi-eye"></i></span>
+                Vision
+              </p>
+              <p class="d-flex flex-wrap align-items-center justify-content-center gap-2"><span><i
+                    class="bi bi-bullseye"></i></span> Mission</p>
+              <p class="d-flex flex-wrap align-items-center justify-content-center gap-2"><span><i
+                    class="bi bi-trophy"></i></span> Values</p>
+            </h2>
+
+            <p class="mb-3">
+              To provide technologically advanced, integrated and inventive
+              pumping solutions and systems for energy saving at affordable prices.
+            </p>
+
+            <p class="mb-3">
+              Our values are defined by our dedication to Quality, Prices &
+              success of the company and its stakeholders at the same time.
+            </p>
+
+            <p class="mb-4">
+              To provide manufacturing solutions to enable productivity,
+              increase profitability and customer satisfaction at the same time.
+            </p>
+
+            <div
+              style="background: rgba(255, 255, 255, 0); padding: 0; border-radius: 10px; margin-bottom: 1.5rem;">
+              <h4 class="fw-bold mb-3" style="color: white;">Quality Policy</h4>
+
+              <p class="mb-2">
+                We are determined to offer reliable & innovative products at services
+                with high standards because to understand & meet customer requirements.
+              </p>
+
+              <p class="mb-2">
+                We are committed to focus on product & service enhancement and
+                comply with applicable requirements & meet customer expectations.
+              </p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0);  border-radius: 10px;padding: 0px !important;">
+              <h4 class="fw-bold mb-3" style="color: white;">ALGO Value Proposition</h4>
+
+              <p class="mb-1"><span style="font-weight: bold;" class="h4">A</span>ffordable price</p>
+              <p class="mb-1"><span style="font-weight: bold;" class="h4">L</span>onger life</p>
+              <p class="mb-1"><span style="font-weight: bold;" class="h4">G</span>reat performance</p>
+              <p class="mb-0"><span style="font-weight: bold;" class="h4">O</span>utstanding service</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <section>
+        <div class="container-fluid px-0">
+            <img class="img-fluid" src="assets/Img/product.jpg" alt="">
+        </div>
+    </section> -->
+
+  <!-- Product Section -->
+  <div class="product-section" id="products">
+    <div class="container ">
+
+      <!-- <p class="product-description pb-0  mb-0">
+                To provide technologically integrated and ultramodern fluid management systems and solutions for
+                diversified applications at affordable prices and become one of the pump majors globally To ensure that
+                we meet all the standards of safety, efficiency, hygiene and environment protection and
+                contribute significantly in developing systems for energy saving.Our Values are defined by our
+                dedication to Quality, Principles & success of the company and its
+                stakeholders.
+            </p>
+
+            <p class="product-description pb-3 pt-2 m-0">
+                We are determined to offer reliable & Innovative products and services with high standards, Dedicated to
+                understand & meet customers' requirements on time.
+                We are committed to focus on introducing industry best technologies & Concepts to save energy, protect
+                environment and to give high priority for customers' satisfaction
+            </p> -->
+
+
+      <!-- Selection Buttons -->
+      <div class="w-100 d-md-flex align-items-center">
+
+
+        <!-- <a href="products.html" class="ms-md-auto">
+                    <button class="btn-main ">More Products</button>
+                </a> -->
+      </div>
+
+
+      <!-- Application Cards -->
+      <div class="row" id="application-cards ">
+
+        <div class="col-md-6 map position-relative px-0 d-flex align-items-center justify-content-center flex-column">
+          <h1>Our Global Networks</h1>
+          <img loading="lazy" class="img-fluid " style="height: 95% !important;" src="assets/map.png" alt="">
+
+
+          <div class="text-descr" style="width: 100%;height: auto;">
+            <!-- 
+            <img src="assets/Img/india.png" alt=""> -->
+
+            <div class="partfor">
+              <img loading="lazy" src="assets/Img/india.png" alt="">
+              <p class="py-auto">Group Companies in India</p>
+            </div>
+
+            <div class="partfor">
+              <img loading="lazy" style="width: 14%; height: auto;" src="assets/Img/foreign.png" alt="">
+              <p class="py-auto">Intrnational Stock Hub</p>
+            </div>
+
+            <div class="partfor">
+              <img loading="lazy" style="width: 14%; height: auto;" src="assets/Img/overseas.png" alt="">
+              <p class="py-auto">Overseas Customers</p>
+            </div>
+
+
+
+
+          </div>
+          <!-- <div title="Gujarat"  style="top: 52.5%;right: 32%;" class="map-dot position-absolute" >
+            <img style="z-index: 222;" src="assets/Img/india.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div>
+          <div title="India" style="top: 54%;right: 29%;" class="map-dot position-absolute">
+            <img style="z-index: 222;" src="assets/Img/india.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div>
+          <div title="India" style="top: 52%;right: 30.4%;" class="map-dot position-absolute">
+            <img style="z-index: 222;" src="assets/Img/india.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div>
+          <div title="India" style="top: 51%;right: 31%;" class="map-dot position-absolute">
+            <img style="z-index: 222;" src="assets/Img/india.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div>
+          <div title="India" style="top: 50%;right: 30%;" class="map-dot position-absolute">
+            <img style="z-index: 222;" src="assets/Img/india.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div>
+          <div title="India" style="top: 54%;right: 30%;" class="map-dot position-absolute">
+            <img style="z-index: 222;" src="assets/Img/india.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div>
+                  <div title="South Africa" style="top: 77%;right: 46%;" class="map-dot position-absolute">
+            <img style="z-index: 222;" src="assets/Img/foreign.png" alt="">
+            <img class="dot-effect position-absolute" src="assets/Img/india.png" alt="">
+          </div> -->
+          <!--<div title="Turkey" style="right: 45%;top: 35%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Saudi Arabia" style="right: 40%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Sudan" style="right: 46%;top: 47%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Congo" style="right: 47%;top: 65%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Guinea" style="right: 53%;top: 50%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Panama" style="right: 78%;top: 50%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="United States" style="right: 82%;top: 36%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Costa Rica" style="right: 79%;top: 48%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Brazil" style="right: 70%;top: 59%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Peru" style="right: 74%;top: 61%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Russia" style="right: 28%;top: 28%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="China" style="right: 25%;top: 42%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div>
+                    <div title="Australia" style="right: 15%;top: 70%;" class="map-dot position-absolute">
+                        <div class="dot-effect position-absolute"></div>
+                    </div> -->
+        </div>
+
+        <div class="col-md-6 d-flex align-items-center justify-content-center flex-column  pb-md-5">
+
+          <h1 style="padding-bottom: 10px !important;">Application and Products</h1>
+          <div class="swiper mySwiper vertical-swiper products-swip">
+            <div class="swiper-wrapper">
+
+              <div data-swiper-parallax="-30%" class="swiper-slide ">
+                <div class="product-cards flex-column justify-content-end align-items-center">
+                  <div class="bg-image" style="background-image: url('assets/Img/Domestico_residenziale.jpg')"></div>
+                  <h3>Domestic / Residential</h3>
+                  <button onclick="pCardFun(0)" class="btn btn-outline-light p-btn">Explore
+                    More</button>
+                </div>
+              </div>
+
+              <div data-swiper-parallax="-30%" class="swiper-slide">
+                <div class="product-cards flex-column justify-content-end align-items-center">
+                  <div class="bg-image" style="background-image: url('assets/Img/agriculture.png')">
+                  </div>
+                  <h3>Agriculture</h3>
+                  <button onclick="pCardFun(2)" class="btn btn-outline-light p-btn">Explore
+                    More</button>
+                </div>
+              </div>
+
+              <div data-swiper-parallax="-30%" class="swiper-slide">
+                <div class="product-cards flex-column justify-content-end align-items-center">
+                  <div class="bg-image" style="background-image: url('assets/Img/indusrial.jpg')">
+                  </div>
+                  <h3>Industrial</h3>
+                  <button onclick="pCardFun(1)" class="btn btn-outline-light p-btn">Explore
+                    More</button>
+                </div>
+              </div>
+
+
+
+              <div class="swiper-slide">
+                <div class="product-cards flex-column justify-content-end align-items-center">
+                  <div class="bg-image" style="background-image: url('assets/Img/dewatering.png')">
+                  </div>
+                  <h3>Dewatering</h3>
+                  <button onclick="pCardFun(3)" class="btn btn-outline-light p-btn">Explore
+                    More</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- (Initially Hidden) section -->
+      <!-- <div class="row our-catalogues  w-100" id="product-type-cards" style="display: none;">
+                <div class="col gap-4 d-flex flex-wrap ">
+                    <h1 class="w-100 text-center text-black">Our Catalogues</h1>
+
+                    <a href="assets/Img/algo pipes catalogue.pdf" download="algo pipes catalogue"><button
+                            class="btn btn-primary">
+                            Algo Pipes
+                        </button></a>
+                    <a href="assets/Img/algo cables catalogue.pdf" download="algo cables catalogue"><button
+                            class="btn btn-primary">
+                            Algo Cables
+                        </button></a>
+                    <a href="assets/Img/DEEP WELL-SUBMRSIBLE PUMPS and MOTER -50 Hz  SA (1).pdf"
+                        download="DEEP WELL-SUBMRSIBLE PUMPS and MOTER -50 Hz  SA"><button class="btn btn-primary">
+                            Deepwell Submersible Pump & Motors
+                        </button></a>
+                    <a href="assets/Img/Algo Centrifugal & Peripheral Pumps. SA.pdf" download><button
+                            class="btn btn-primary">
+                            Algo Centrifugal & Peripheral Pumps
+                        </button></a>
+                    <a href="assets/Img/DEWATERING CATALOGUE.pdf" download="dewatering catalogue"><button
+                            class="btn btn-primary">
+                            Dewatering Catalogue
+                        </button></a>
+                </div> -->
+
+      <!-- <div class="">
+                    <div class=" pp-2">
+                        <div class="bg-image bg-image2"
+                            style="background-image: url('assets/Img/p-1.png');background-size: contain;background-repeat: no-repeat;z-index: 111;">
+                        </div>
+                        <h3>SS Submersible Pumps</h3>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="  pp-2 highlighted">
+                        <div class="bg-image bg-image2"
+                            style="background-image: url('assets/Img/p-2.png');background-size: contain;background-repeat: no-repeat;z-index: 111;">
+                        </div>
+                        <h3>Submersible Motors</h3>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="  pp-2">
+                        <div class="bg-image bg-image2"
+                            style="background-image: url('assets/Img/p-3.png');background-size: contain;background-repeat: no-repeat;z-index: 111;">
+                        </div>
+                        <h3>High Presure Pumps</h3>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="  pp-2">
+                        <div class="bg-image bg-image2"
+                            style="background-image: url('assets/Img/p-4.png');background-size: contain;background-repeat: no-repeat;z-index: 111;">
+                        </div>
+                        <h3>uPVC Column Pipes</h3>
+                    </div> 
+                </div> -->
+
+    </div>
+  </div>
+  </div>
+
+
+  <!-- Product 1 Popup d&r-->
+  <div class="submersible-pumpsets-1 position-fixed  align-items-center justify-content-center px-0 overflow-auto "
+    style="overflow-x: hidden !important;">
+    <i class="bi bi-x-circle h3 " style="z-index: 11111;color: rgb(0, 0, 0);position: absolute;"
+      onclick="closedClick(0)"></i>
+    <div class="row mt-4">
+      <!-- Card 1: AP Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-1.png" alt="AP Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 3kW / 0.5 - 1HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz</li>
+                <li><strong>Pumps Size:</strong> 1"x1"</li>
+                <li><strong>Head Max:</strong> 63m / 206ft</li>
+                <li><strong>Flow Max:</strong> 2.5m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: CM Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-2.png" alt="CM Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 7.5kW / 0.5 - 1.0HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V-415V - 50Hz / 3Ph - 380V-415V - 50Hz</li>
+                <li><strong>Pumps Size:</strong> 1"x1", 1¼", 2"x1¼", 2"x2", 3"x3"</li>
+                <li><strong>Head Max:</strong> 121m / 370ft</li>
+                <li><strong>Flow Max:</strong> 345m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: CMS Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-3.png" alt="CMS Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 3kW / 0.5 - 4HP</li>
+                <li><strong>Version:</strong> 3Ph - 380V-415V - 50Hz</li>
+                <li><strong>Pumps Size:</strong> 2"x1¼", 2½"x1½", 2½"x2", 3"x2½", 4"x3"</li>
+                <li><strong>Head Max:</strong> 95m / 311ft</li>
+                <li><strong>Flow Max:</strong> 246m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4: JB Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-4.png" alt="JB Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 1.5kW / 0.5 - 2HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                <li><strong>Pumps Size:</strong> 1"x1", 1¼", 1"</li>
+                <li><strong>Max. Suction Lift:</strong> up to 9m</li>
+                <li><strong>Head Max:</strong> 50m / 164ft</li>
+                <li><strong>Flow Max:</strong> 4.4m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: JS Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-5.png" alt="JS Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 1.1kW / 0.5 - 1.5HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                <li><strong>Pumps Size:</strong> 1"x1"</li>
+                <li><strong>Max. Suction Lift:</strong> up to 7m</li>
+                <li><strong>Head Max:</strong> 45m / 147ft</li>
+                <li><strong>Flow Max:</strong> 3.6m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Zingo Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-6.png" alt="Zingo Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 400 & 750 watts</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz</li>
+                <li><strong>Pumps Size:</strong> 1¼"</li>
+                <li><strong>Head Max:</strong> 7m</li>
+                <li><strong>Flow Max:</strong> 16m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 7: Jawa Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-7.png" alt="Jawa Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 1.5kW / 0.5 - 2.0HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V / 3Ph - 380V - 50Hz</li>
+                <li><strong>Head Max:</strong> 20m</li>
+                <li><strong>Flow Max:</strong> 25m³/h</li>
+                <li><strong>Delivery Size:</strong> 1¼" & 2"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: Sendra Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-8.png" alt="Sendra Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 11kW / 0.5 - 15HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                <li><strong>Head Max:</strong> 20m</li>
+                <li><strong>Flow Max:</strong> 9 - 100m³/h</li>
+                <li><strong>Delivery Size:</strong> 1" x 1½"</li>
+                <li><strong>Solid Handling Capacity:</strong> 15 to 30mm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9: X-Streame Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-9.png" alt="X-Streame Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.75 - 4kW / 1.5 - 5HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 50Hz</li>
+                <li><strong>Pressure Tank Capacity:</strong> 24L</li>
+                <li><strong>Pumps Size:</strong> 1" x 1"</li>
+                <li><strong>Head Max:</strong> up to 60m</li>
+                <li><strong>Flow Max:</strong> up to 16m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10: VFD XS Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-10.png" alt="VFD XS Series">
+            </div>
+            <div class="flip-card-back">
+              <ul style="height: 100%;" class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 1Ph - 0.75 - 2.2kW / 1.0 - 3.0HP<br>3Ph - 4.0 - 7.5kW / 5.5 - 10HP
+                </li>
+                <li><strong>Input Voltage:</strong> 220VAC or 380VAC</li>
+                <li><strong>Input Frequency:</strong> 50 & 60Hz</li>
+                <li><strong>Protection:</strong> MS Powder Coated / Plastic</li>
+                <li><strong>Pressure Sensor Range:</strong> 10bar / 16bar / 25bar</li>
+                <li><strong>Self-starting Pressure:</strong> Pre-set pressure value 0.3 bar</li>
+                <li><strong>System Configuration Requirement:</strong> Fit with 4L or above pressure tank on the pipe
+                  line (the inflation pressure = 60% setting)</li>
+                <li><strong>Ambient Temperature:</strong> (-10~+40)°C</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 11: VFD TB Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-11.png" alt="VFD TB Series">
+            </div>
+            <div class="flip-card-back overflow-auto align-items-start">
+              <ul style="height: 100%;" class="text-start px-3 small ">
+                <li><strong>Working Voltage:</strong> AC220V / 50Hz / 60Hz<br>AC380V / 50Hz / 60Hz</li>
+                <li><strong>Rated Output Power:</strong> 0.37 - 2.2KW / 0.75 - 4KW / 5.5 - 7.5KW / 11KW / 15KW</li>
+                <li><strong>Under/Over Voltage Recovery Time:</strong> 5 minutes</li>
+                <li><strong>Low-voltage Cut-Off:</strong> AC 176V (220V) / AC 304V (380V)</li>
+                <li><strong>High-voltage Cut-Off:</strong> AC 253V (220V) / AC 437V (380V)</li>
+                <li><strong>Locked Rotor Cut-Off Time:</strong> 1 second</li>
+                <li><strong>Dry-Running Cut-Off Time:</strong> 10 sec / 3 sec / 5 min optional</li>
+                <li><strong>Distance For Signal Transmit:</strong> 200m</li>
+                <li><strong>Adaptive Pressure Sensor:</strong> DC5V / 0.5-4.5V, 0.1-0.2mpa, 0-2.5mpa<br>Signal output
+                  type range: 0-1.0mpa, 0-1.6mpa, 0-2.5mpa</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 12: Pump Controller -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Domestic and Resident/dr-p-12.png" alt="Pump Controller">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Rated Voltage:</strong> 220/230V & 110/120V - 50/60Hz</li>
+                <li><strong>Max. Current:</strong> 10A / 16A</li>
+                <li><strong>Starting Pressure:</strong> 1.2bar / 1.5bar / 2.2bar</li>
+                <li><strong>Working Pressure:</strong> 10 Bar (max.)</li>
+                <li><strong>Max. Working Temp:</strong> 50°C</li>
+                <li><strong>Cable Length:</strong> Customized</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 d-flex flex-wrap justify-content-evenly align-items-center py-4">
+        <a href="assets/Img/Algo Centrifugal & Peripheral Pumps. SA.pdf" download><button class="btn btn-primary">
+            <i class="fa-solid fa-download text-white px-2"></i> Download Catalogues
+          </button></a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Product 2 Popup -->
+  <div class="submersible-pumpsets-1 position-fixed  align-items-center justify-content-center px-0 overflow-auto "
+    style="overflow-x: hidden !important;">
+    <i class="bi bi-x-circle h3 " style="z-index: 11111;color: rgb(0, 0, 0);position: absolute;"
+      onclick="closedClick(1)"></i>
+    <div class="row ">
+      <div class="row ">
+        <!-- Industrial Card 1: Sendra H Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-1.png" alt="Sendra H Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 0.37 - 11kW / 0.5 - 15HP</li>
+                  <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                  <li><strong>Head Max:</strong> 20m</li>
+                  <li><strong>Flow Max:</strong> 39 - 100m³/h</li>
+                  <li><strong>Delivery Size:</strong> DN40 - DN100</li>
+                  <li><strong>Solid Handling Capacity:</strong> 15 to 30mm</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 2: Jawa Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-2.png" alt="Jawa Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 0.75 - 7.5kW / 1.0 - 10HP</li>
+                  <li><strong>Version:</strong> 1Ph - 230V / 3Ph - 380V - 415V</li>
+                  <li><strong>Head Max:</strong> 27m</li>
+                  <li><strong>Flow Max:</strong> 100m³/h</li>
+                  <li><strong>Delivery Size:</strong> DN40 to DN100</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 3: Blora Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-3.png" alt="Blora Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 1.5 - 45kW / 2 - 60HP</li>
+                  <li><strong>Version:</strong> 3Ph - 380V - 415V - 50Hz</li>
+                  <li><strong>Head Max:</strong> 55m</li>
+                  <li><strong>Flow Max:</strong> 480m³/h</li>
+                  <li><strong>Delivery Size:</strong> DN50 to DN200</li>
+                  <li><strong>Solid Handling Capacity:</strong> 30 to 100mm</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 4: Blora D Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-4.png" alt="Blora D Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 0.75 - 37kW / 1 - 50HP</li>
+                  <li><strong>Version:</strong> 3Ph - 380V - 415V - 50Hz</li>
+                  <li><strong>Head Max:</strong> 65m</li>
+                  <li><strong>Flow Max:</strong> 490m³/h</li>
+                  <li><strong>Delivery Size:</strong> 50 to 150mm</li>
+                  <li><strong>Solid Handling Capacity:</strong> 12 to 35mm</li>
+                  <li><strong>Speed:</strong> 2900 rpm</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 5: ESAM Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-5.png" alt="ESAM Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> up to 185kW</li>
+                  <li><strong>Pump Size:</strong> DN200 to DN450</li>
+                  <li><strong>Speed:</strong> up to 2900 rpm</li>
+                  <li><strong>Flow Max:</strong> up to 3600m³/h</li>
+                  <li><strong>Head Max:</strong> up to 45m</li>
+                  <li><strong>Max Working Temp:</strong> 60°C</li>
+                  <li><strong>Max Working Pressure:</strong> 16 bar</li>
+                  <li><strong>Impeller Material:</strong> CI / SS304 / SS316 / Casted SS / BRONZE ZE / ALOY-20 etc.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 6: Induction Motor -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-6.png" alt="Induction Motor">
+              </div>
+              <div class="flip-card-back">
+                <ul style="height: 100%;" class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 0.5HP to 425HP</li>
+                  <li><strong>Version:</strong> 1Ph - 230V, CSR / CSCR<br>3Ph - 415V, DOL / SD</li>
+                  <li><strong>Speed:</strong> 2900 / 1450 / 960 / 740 rpm</li>
+                  <li><strong>Protection:</strong> IP 44 / IP 55</li>
+                  <li><strong>Insulation:</strong> “B” / “F” Class</li>
+                  <li><strong>Duty:</strong> S1 Continuous</li>
+                  <li><strong>Mounting:</strong> Foot (B3), Flange (B5), Face (B14), Foot cum Flange (B35), Foot Cum
+                    Face (B34)</li>
+                  <li><strong>Direction of Rotation:</strong> B-Direction</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 7: CMS Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-7.png" alt="CMS Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 1.1 - 37kW / 1.5 - 50HP</li>
+                  <li><strong>Version:</strong> 3Ph - 380V - 415V - 50Hz</li>
+                  <li><strong>Pump Size:</strong> 2"x1½", 2½"x1½", 2½"x2", 3"x2½", 4"x3"</li>
+                  <li><strong>Head Max:</strong> 73m / 239ft</li>
+                  <li><strong>Flow Max:</strong> 200m³/h</li>
+                  <li><strong>Speed:</strong> 2900 rpm</li>
+                  <li><strong>Material of Construction:</strong> Casing - SS304, Impeller - SS304</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industrial Card 8: CM Series -->
+        <div class="col-md-3 col-sm-6 p-4">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front d-flex align-items-center justify-content-center">
+                <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                  src="assets/Industrial Products/I-p-8.png" alt="CM Series">
+              </div>
+              <div class="flip-card-back">
+                <ul class="text-start px-3 small">
+                  <li><strong>Power Range:</strong> 2.2 - 30kW / 3 - 40HP</li>
+                  <li><strong>Version:</strong> 3Ph - 380V - 415V - 50Hz</li>
+                  <li><strong>Pump Size:</strong> 2"x1½", 2½"x1½", 2½"x2", 3"x2½", 3"x3", 4"x3"</li>
+                  <li><strong>Head Max:</strong> 95m / 311ft</li>
+                  <li><strong>Flow Max:</strong> 246m³/h</li>
+                  <li><strong>Speed:</strong> 2900 rpm</li>
+                  <li><strong>Material of Construction:</strong> Casing - CI, Impeller - CI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 d-flex flex-wrap justify-content-evenly align-items-center py-4">
+          <a href="assets/Img/ALGO New High Pressure Multistage Pumps - 50Hz.pdf" download><button
+              class="btn btn-primary">
+              <i class="fa-solid fa-download text-white px-2"></i> Download Catalogues
+            </button></a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Product 3 Popup -->
+  <div class="submersible-pumpsets-1 position-fixed  align-items-center justify-content-center px-0 overflow-auto"
+    style="overflow-x: hidden !important;">
+    <i class="bi bi-x-circle h3 " style="z-index: 11111;color: rgb(0, 0, 0);" onclick="closedClick(2)"></i>
+    <div class="row mt-4">
+
+      <!-- Agriculture Card 1: Alinox Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Agriculture/a-p-1.png" alt="Alinox Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37-7.5kW / 0.5 - 10HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                <li><strong>Head Max:</strong> 458m / 1502ft</li>
+                <li><strong>Flow Max:</strong> 318m³/h</li>
+                <li><strong>Outlet Size:</strong> 1¼", 1½", 2"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agriculture Card 2: X-ORA Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Agriculture/a-p-2.png" alt="X-ORA Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 7.5kW / 0.5 - 10HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                <li><strong>Protection:</strong> IP68</li>
+                <li><strong>Max Submergence Depth:</strong> 150m</li>
+                <li><strong>Frequency:</strong> 50Hz</li>
+                <li><strong>Speed:</strong> 2900 rpm</li>
+                <li><strong>Insulation Class:</strong> Class F</li>
+                <li><strong>Max Liquid Temp:</strong> 33°C</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agriculture Card 3: Lavo Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Agriculture/a-p-3.png" alt="Lavo Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Nominal Dia:</strong> 3" - 10"</li>
+                <li><strong>Power Range:</strong> 0.37 - 220kW / 0.5 - 300HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V up to 3HP / 3Ph - 380V - 415V</li>
+                <li><strong>Head Max:</strong> 488m / 1600ft</li>
+                <li><strong>Flow Max:</strong> 2820m³/h</li>
+                <li><strong>Outlet Size:</strong> 1" - 6"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agriculture Card 4: Aqua Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Agriculture/a-p-4.png" alt="Aqua Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Nominal Dia:</strong> 3" - 10"</li>
+                <li><strong>Power Range:</strong> 0.37 - 220kW / 0.5 - 300HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V up to 3HP / 3Ph - 380V - 415V</li>
+                <li><strong>Head Max:</strong> 488m / 1600ft</li>
+                <li><strong>Flow Max:</strong> 2820m³/h</li>
+                <li><strong>Outlet Size:</strong> 1" - 6"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agriculture Card 5: Primo++, Nano, Medium, Heavy, Standard, Super Heavy -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Agriculture/a-p-5.png" alt="Primo++ and Others">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Options:</strong> Primo++, Nano, Medium, Heavy, Standard, Super Heavy</li>
+                <li><strong>Material:</strong> uPVC and Stainless Steel</li>
+                <li><strong>Applications:</strong> Submersible Pumps in agriculture and irrigation</li>
+                <li><strong>Features:</strong> High durability, corrosion resistance, and pressure withstanding</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agriculture Card 6: uPVC Column Pipes & Adaptors -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Agriculture/a-p-6.png" alt="uPVC Column Pipes">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Material:</strong> uPVC with SS Clamp Rings</li>
+                <li><strong>Size Range:</strong> 1" to 4" diameter</li>
+                <li><strong>Length:</strong> 3m per piece standard</li>
+                <li><strong>Pressure Class:</strong> SCH 40 / SCH 80 / SDR</li>
+                <li><strong>Features:</strong> Leak proof, rust free, long life for borewell & agriculture pumping</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex"><button type="button" onclick="openModul()" class="btn btn-primary mx-auto my-3"
+          data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Download Catalogue
+        </button></div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="container-fluid modul-pop">
+    <div style="z-index: 111;" class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel"
+      aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div style="z-index: 111111111111111;" class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Catalogues</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              onclick="modulClose()"></button>
+          </div>
+          <div style="z-index: 111111111111111;" class="modal-body">
+            <div class="col d-flex flex-wrap justify-content-evenly align-items-center py-4 gap-4">
+              <a href="assets/Img/algo pipes catalogue.pdf" download><button class="btn btn-primary">
+                  <i class="fa-solid fa-download text-white px-2"></i> Algo Pipes
+                </button></a>
+              <a href="assets/Img/DEEP WELL-SUBMRSIBLE PUMPS and MOTER -50 Hz  SA (1).pdf" download><button
+                  class="btn btn-primary">
+                  <i class="fa-solid fa-download text-white px-2"></i> Deepwell Submersible Pump &
+                  Motors
+                </button></a>
+              <a href="assets/Img/algo cables catalogue.pdf" download><button class="btn btn-primary">
+                  <i class="fa-solid fa-download text-white px-2"></i> Algo Cables
+                </button></a>
+
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Product 4 Popup -->
+  <div class="submersible-pumpsets-1 position-fixed  align-items-center justify-content-center px-0 overflow-auto"
+    style="overflow-x: hidden !important;">
+    <i class="bi bi-x-circle h3" style="z-index: 11111;color: rgb(0, 0, 0);" onclick="closedClick(3)"></i>
+    <div class="row mt-4">
+      <!-- Dewatering Card 1: ADP Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Dewatering/d-p-1.png" alt="ADP Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 1 - 110HP</li>
+                <li><strong>Head Max:</strong> up to 30m</li>
+                <li><strong>Solid Handling Size:</strong> up to 25mm</li>
+                <li><strong>Flow Max:</strong> up to 1200m³/h</li>
+                <li><strong>Power:</strong> Engine Driven</li>
+                <li><strong>Type:</strong> Trolley Type</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dewatering Card 2: ESD Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Dewatering/d-p-2.png" alt="ESD Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 1 - 125HP</li>
+                <li><strong>Head Max:</strong> up to 62m</li>
+                <li><strong>Solid Handling Size:</strong> up to 76mm</li>
+                <li><strong>Flow Max:</strong> up to 1280m³/h</li>
+                <li><strong>Power:</strong> Engine Driven / Motor Driven</li>
+                <li><strong>Type:</strong> Skid Mounted Type / Trolley Type</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dewatering Card 3: Hercula Series -->
+      <div class="col-md-3 col-sm-6 p-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Dewatering/d-p-3.png" alt="Hercula Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 75kW / 100HP</li>
+                <li><strong>Speed:</strong> 2900 rpm</li>
+                <li><strong>Version:</strong> 3Ph</li>
+                <li><strong>Head Max:</strong> 200m</li>
+                <li><strong>Flow Max:</strong> 210m³/h</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dewatering Card 4: Ronda Series -->
+      <div class="col-md-3 col-sm-6 p-4 ">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Dewatering/d-p-4.png" alt="Ronda Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 0.37 - 22.5kW / 0.5 - 30HP</li>
+                <li><strong>Version:</strong> 1Ph - 230V - 50Hz / 3Ph - 380V - 415V - 50Hz</li>
+                <li><strong>Speed:</strong> 2900 rpm</li>
+                <li><strong>Head Max:</strong> 30m</li>
+                <li><strong>Flow Max:</strong> 338m³/h</li>
+                <li><strong>Delivery Size:</strong> DN50 to DN200</li>
+                <li><strong>Solid Handling Capacity:</strong> 7 to 30mm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dewatering Card 5: MSD Series -->
+      <div class="col-md-3 col-sm-6 p-4 mx-auto">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front d-flex align-items-center justify-content-center">
+              <img loading="lazy" class="img-fluid" style="object-fit: contain; height: 70%;"
+                src="assets/Dewatering/d-p-5.png" alt="MSD Series">
+            </div>
+            <div class="flip-card-back">
+              <ul class="text-start px-3 small">
+                <li><strong>Power Range:</strong> 22kW / 110kW</li>
+                <li><strong>Version:</strong> 3Ph - 415V - 50Hz</li>
+                <li><strong>Head Max:</strong> 10 - 50m</li>
+                <li><strong>Flow Max:</strong> 60 - 900m³/h</li>
+                <li><strong>Speed Range:</strong> 6 pole, 8 pole & 10 pole</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-100 d-flex py-4">
+        <a class="mx-auto" href="assets/Img/DEWATERING CATALOGUE.pdf" download="dewatering catalogue"><button
+            class="btn btn-primary">
+            <i class="fa-solid fa-download text-white px-2"></i> Download Catalogues
+          </button></a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Product End -->
+
+  <!-- carousel-container -->
+  <!-- 
+  <div class="carousel-container" style="height: 500px;">
+     Slide 1 -->
+  <!-- <div class="carousel-slide active">
+      <div class="industrial-component">
+        <img src="assets/Img/world.jpg" alt="Research and development" class="industrial-image">
+        <div class="carousel-content">
+          <h2 class="carousel-title">Research and development</h2>
+          <p class="carousel-description">
+            To provide technologically integrated and ultramodern fluid management systems and solutions for
+            diversified applications at affordable prices and become one of the pump majors globally
+          </p>
+          <div class="carousel-controls">
+            <div class="carousel-progress">
+              <div class="carousel-progress-bar" style="width: 20%"></div>
+            </div>
+            <div class="carousel-pagination">1/5</div>
+            <div class="carousel-nav">
+              <button class="carousel-nav-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  <!-- Slide 2 -->
+  <!-- <div class="carousel-slide">
+      <div class="industrial-component">
+        <img src="assets/Img/industriale.jpg" alt="Our first 50 years" class="industrial-image">
+        <div class="carousel-content">
+          <h2 class="carousel-title">Algo Profile</h2>
+          <p class="carousel-description">
+            Algo positions itself as not just a pump manufacturing company but as a dependable,
+            technologically sound and one stop solution provider to meet the diverse needs of customers
+            across the globe. Understanding the need of efficient and cost effective pumping solutions and
+            fluid management systems ALGO is established by the veterans having more than 33 years of
+            diversified experience.
+          </p>
+          <div class="carousel-controls">
+            <div class="carousel-progress">
+              <div class="carousel-progress-bar" style="width: 40%"></div>
+            </div>
+            <div class="carousel-pagination">2/5</div>
+            <div class="carousel-nav">
+              <button class="carousel-nav-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  <!-- Slide 3 -->
+  <!-- <div class="carousel-slide">
+      <div class="industrial-component">
+        <img src="assets/Img/Domestico_residenziale.webp" alt="BIG 5 Global" class="industrial-image">
+        <div class="carousel-content">
+          <h2 class="carousel-title">Algo Global</h2>
+          <p class="carousel-description">
+            With the vast experience gained in both domestic and international markets ALGO products are
+            designed and produced with synergy of best in class technologies and processes with
+            international standards. Most of its products are ISI certified and manufacturing facilities are
+            accredited with ISO 9001 & 14001 COMPANY
+          </p>
+          <div class="carousel-controls">
+            <div class="carousel-progress">
+              <div class="carousel-progress-bar" style="width: 60%"></div>
+            </div>
+            <div class="carousel-pagination">3/5</div>
+            <div class="carousel-nav">
+              <button class="carousel-nav-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  <!-- Slide 4 -->
+  <!-- <div class="carousel-slide">
+      <div class="industrial-component">
+        <img src="assets/Img/Civile_Commerciale.webp" alt="IFAT 2024" class="industrial-image">
+        <div class="carousel-content">
+          <h2 class="carousel-title">Quality Policy</h2>
+          <p class="carousel-description">
+            We are committed to focus on introducing industry best technologies & Concepts to save energy,
+            protect environment and to give high priority for customers' satisfaction
+          </p>
+          <div class="carousel-controls">
+            <div class="carousel-progress">
+              <div class="carousel-progress-bar" style="width: 80%"></div>
+            </div>
+            <div class="carousel-pagination">4/5</div>
+            <div class="carousel-nav">
+              <button class="carousel-nav-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  <!-- Slide 5 -->
+  <!-- <div class="carousel-slide">
+      <div class="industrial-component">
+        <img src="assets/Img/agriculture.png" alt="Made in Italy" class="industrial-image">
+        <div class="carousel-content">
+          <h2 class="carousel-title">Algo Multi Services</h2>
+          <p class="carousel-description">
+            Algo has comprehensive range of products to cater Residential, Agriculture, Building services,
+            Industrial & waste water segments. Algo's highly qualified Engineers and technicians assure
+            satisfactory service at all time
+          </p>
+          <div class="carousel-controls">
+            <div class="carousel-progress">
+              <div class="carousel-progress-bar" style="width: 100%"></div>
+            </div>
+            <div class="carousel-pagination">5/5</div>
+            <div class="carousel-nav">
+              <button class="carousel-nav-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div id="catalogue" class="container-fluid px-0 py-md-5">
+    <div class="row mx-0 justify-content-center pt-md-5 pt-2s">
+      <div class="col-lg-6">
+        <div class="section-title text-center position-relative mb-4">
+          <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Our Catalogues</h6>
+          <!-- <h1 class="display-4 hh">Checkout Our Catalogues </h1> -->
+        </div>
+      </div>
+    </div>
+    <div class="owl-carousel product-carousel">
+      <div class="courses-item position-relative " style="padding: 10px !important;">
+        <img loading="lazy" class="img-fluid" style="height: 368px;object-fit: cover;"
+          src="assets/Img/SA all catalogue rapper-images-0.jpg" alt="">
+        <div class="courses-text">
+          <!-- <h4 class="text-center text-white px-3">uPVC COLUMN PIPE</h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white"><i class="fa fa-user mr-2"></i>Algo</span>
+                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 </span>
+                        </div>
+                    </div> -->
+          <div class="w-100 bg-white d-flex text-center p-4 d-flex gap-2">
+            <a target="_blank" href="assets/Img/Algo Pipe Catalogue - 2023.pdf" class="btn btn-primary">Open</a>
+            <a target="_blank" href="assets/Img/Algo Pipe Catalogue - 2023.pdf" class="btn btn-primary"
+              download="Algo Pipe Catalogue">Download </a>
+          </div>
+        </div>
+      </div>
+      <div class="courses-item position-relative" style="padding: 10px !important;">
+        <img loading="lazy" class="img-fluid" style="height: 368px;object-fit: cover;"
+          src="assets/Img/SA all catalogue rapper-images-1.jpg" alt="">
+        <div class="courses-text">
+          <!-- <h4 class="text-center text-white px-3">SS Submersible Pumps</h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white"><i class="fa fa-user mr-2"></i>Algo</span>
+                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 </span>
+                        </div>
+                    </div> -->
+          <div class="w-100 bg-white d-flex text-center p-4 gap-2">
+            <a target="_blank" href="assets/Img/ALGO New High Pressure Multistage Pumps - 50Hz.pdf"
+              class="btn btn-primary">Open</a>
+            <a target="_blank" href="assets/Img/ALGO New High Pressure Multistage Pumps - 50Hz.pdf"
+              class="btn btn-primary" download>Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="courses-item position-relative" style="padding: 10px !important;">
+        <img loading="lazy" class="img-fluid" style="height: 368px;object-fit: cover;"
+          src="assets/Img/SA all catalogue rapper-images-2.jpg" alt="">
+
+        <div class="courses-text">
+          <!-- <h4 class="text-center text-white px-3">Submersible Motors</h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white"><i class="fa fa-user mr-2"></i>Algo</span>
+                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 </span>
+                        </div>
+                    </div> -->
+          <div class="w-100 bg-white d-flex text-center p-4 gap-2">
+            <a target="_blank" href="assets/Img/Domestic & Residential Pumps.pdf" class="btn btn-primary">Open</a>
+            <a target="_blank" href="assets/Img/Domestic & Residential Pumps.pdf" class="btn btn-primary">Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="courses-item position-relative" style="padding: 10px !important;">
+        <img loading="lazy" class="img-fluid" style="height: 368px;object-fit: cover;"
+          src="assets/Img/SA all catalogue rapper-images-3.jpg" alt="">
+        <div class="courses-text">
+          <!-- <h4 class="text-center text-white px-3">High Pressure pumps</h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white"><i class="fa fa-user mr-2"></i>Algo</span>
+                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 </span>
+                        </div>
+                    </div> -->
+          <div class="w-100 bg-white d-flex text-center p-4 gap-2">
+            <a target="_blank" href="assets/Img/DEEP WELL-SUBMRSIBLE PUMPS and MOTER -50 Hz  SA (1).pdf"
+              class="btn btn-primary">Open</a>
+            <a target="_blank" href="assets/Img/DEEP WELL-SUBMRSIBLE PUMPS and MOTER -50 Hz  SA (1).pdf"
+              class="btn btn-primary">Download</a>
+
+          </div>
+        </div>
+      </div>
+      <div class="courses-item position-relative" style="padding: 10px !important;  ">
+        <img loading="lazy" class="img-fluid" style="height: 368px;object-fit: cover;"
+          src="assets/Img/SA all catalogue rapper-images-4.jpg" alt="">
+
+        <div class="courses-text">
+          <!-- <h4 class="text-center text-white px-3">Submersible Flat Cable</h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white"><i class="fa fa-user mr-2"></i>Algo</span>
+                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 </span>
+                        </div>
+                    </div> -->
+          <div class="w-100 bg-white text-center p-4 d-flex  gap-2">
+            <a target="_blank" href="assets/Img/DEWATERING CATALOGUE.pdf" class="btn btn-primary">open
+            </a>
+            <a target="_blank" href="assets/Img/DEWATERING CATALOGUE.pdf" class="btn btn-primary"
+              download="DEWATERING CATALOGUE"> Download</a>
+          </div>
+        </div>
+      </div>
+      <div class="courses-item position-relative" style="padding: 10px !important;  ">
+        <img loading="lazy" class="img-fluid" style="height: 368px;object-fit: cover;"
+          src="assets/Img/SA all catalogue rapper-images-5.jpg" alt="">
+
+        <div class="courses-text">
+          <!-- <h4 class="text-center text-white px-3">Submersible Flat Cable</h4>
+                    <div class="border-top w-100 mt-3">
+                        <div class="d-flex justify-content-between p-4">
+                            <span class="text-white"><i class="fa fa-user mr-2"></i>Algo</span>
+                            <span class="text-white"><i class="fa fa-star mr-2"></i>4.5 </span>
+                        </div>
+                    </div> -->
+          <div class="w-100 bg-white text-center p-4 d-flex  gap-2">
+            <a target="_blank" href="assets/Img/DEWATERING CATALOGUE.pdf" class="btn btn-primary">open
+            </a>
+            <a target="_blank" href="assets/Img/DEWATERING CATALOGUE.pdf" class="btn btn-primary"
+              download="DEWATERING CATALOGUE"> Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Ebara catalogues ------------------------------------------>
+  <div id="ebara" class="ebara-catalogues container-fluid py-5">
+    <div class="container">
+      <div class="section-title text-start position-relative mb-4">
+          <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">Ebara Catalogues</h6>
+          <!-- <h1 class="display-4 hh">Checkout Our Catalogues </h1> -->
+        </div>
+      <div class="row d-flex align-items-center justify-content-start gap-4 mt-3">
+        <div style="background-image: url(assets/Img/ebara-p-1.jpeg);background-size: cover;position: relative;" class="ebara-cards col-md-3">
+          <div style="left: 0;" class="courses-text ebara-txt position-absolute">
+            <div class="w-100 bg-white text-center p-4 d-flex  gap-2">
+              <a target="_blank" href="assets/Img/General Catalog 2022.pdf" class="btn btn-primary">open
+              </a>
+              <a target="_blank" href="assets/Img/General Catalog 2022.pdf" class="btn btn-primary"
+                download> Download</a>
+            </div>
+          </div>
+        </div>
+        <div style="background-image: url(assets/Img/ebara-p-2.jpeg);background-size: cover;position: relative;" class="ebara-cards col-md-3">
+          <div style="left: 0;" class="courses-text ebara-txt position-absolute">
+            <div class="w-100 bg-white text-center p-4 d-flex  gap-2">
+              <a target="_blank" href="assets/Img/EBARA PROFILE_2022.pdf" class="btn btn-primary">open
+              </a>
+              <a target="_blank" href="assets/Img/EBARA PROFILE_2022.pdf" class="btn btn-primary"
+                download> Download</a>
+            </div>
+          </div>
+        </div>
+        <div style="background-image: url(assets/Img/ebara-p-3.jpeg);background-size: cover;position: relative;" class="ebara-cards col-md-3">
+          <div style="left: 0;" class="courses-text ebara-txt position-absolute">
+            <div class="w-100 bg-white text-center p-4 d-flex  gap-2">
+              <a target="_blank" href="assets/Img/GS Commercial catalogue eng 02_17.pdf" class="btn btn-primary">open
+              </a>
+              <a target="_blank" href="assets/Img/GS Commercial catalogue eng 02_17.pdf" class="btn btn-primary"
+                download> Download</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer Start -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Company Header -->
+      <div class="company-header">
+        <h1 class="company-logo">ALGO GROUP OF COMPANIES</h1>
+      </div>
+
+      <!-- Main Footer Content -->
+      <div class="footer-main">
+        <div class="row">
+          <!-- Company Information -->
+          <div class=" col-md-12">
+            <div class="footer-section">
+              <!-- <h3 class="section-title">Company Information</h3> -->
+              <div class="company-info">
+                <h2 class="company-name">ALGO FLUID TECHNIKS SA (PTY) LTD.</h2>
+
+                <ul class="contact-list">
+                  <li class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt contact-icon"></i> -->
+                    <div class="contact-text text-center">
+                      Unit 20 Mifa Industrial Park,
+                      399 George Street Randjies Park,<br>
+                      Midrand - 1685, Johannesburg,
+                      Gauteng, South Africa <br>
+                      Tel: <a href="tel:+27731604799" class="contact-link">+27 73 160 4799</a> / <a
+                        href="tel:+27785068977" class="contact-link">+27 78 506 8977</a> | Email: <a
+                        href="mailto:info@algopump.co.za" class="contact-link">info@algopump.co.za</a> <br>
+                      <a href="https://www.algopump.co.za" class="contact-link" target="_blank">www.algopump.co.za</a>
+
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt contact-icon"></i> -->
+                    <div class="contact-text text-center">
+
+                      <strong> Ahmedabad | Mumbai | Coimbatore | Pune | Secunderabad | Kollam</strong>
+                    </div>
+                  </li>
+                  <li class="contact-item">
+                    <!-- <i class="fas fa-map-marker-alt contact-icon"></i> -->
+                    <div class="contact-text text-center">
+
+                      <strong> INTL. STOCK HUBS : NAIROBI - KENYA, VALENCIA - SPAIN </strong>
+                    </div>
+                  </li>
+
+
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Locations & Social -->
+          <div class="col-md-12">
+            <div class="footer-section">
+
+
+              <!-- Social Media -->
+              <div class="footer-section mt-0">
+                <div class="social-section">
+                  <!-- <p style="color: var(--text-secondary); margin-bottom: 0;">Follow us for updates and industry insights</p> -->
+                  <div class="social-links pt-0 my-0">
+                    <span class="m-0 d-flex align-items-center justify-content-center">
+                      <h5 class="mb-0">Social Links :</h5>
+                    </span>
+                    <a href="#" class="social-link" title="Facebook" aria-label="Facebook">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Twitter" aria-label="Twitter">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" title="Instagram" aria-label="Instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" title="YouTube" aria-label="YouTube">
+                      <i class="fab fa-youtube"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-content">
+          <p class="mx-auto">&copy; 2025 <strong>Algo</strong> Group of Companies. All rights reserved.</p>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Jquery Cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.8/swiper-bundle.min.js"></script>
+  <!-- Bootstrap cdn link -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
+  <!-- aos -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: false, // allow animation every time element enters
+    });;
+  </script>
+  <!-- Custom Js -->
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>
