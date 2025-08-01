@@ -1,0 +1,98 @@
+@media (max-width: 1025px) {
+  .btn-selector {
+    display: none !important;
+  }
+}
+
+
+
+ /* Desktop styles - Fixed hover behavior */
+        @media (min-width: 992px) {
+            /* Ensure nested dropdowns are positioned correctly */
+            .dropdown-menu .dropdown {
+                position: relative;
+            }
+            
+            .dropdown-menu .dropdown-menu {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                margin-top: 0;
+                margin-left: -1px; /* Overlap slightly to prevent gaps */
+            }
+            
+            /* Add hover bridge to prevent flickering */
+            .dropdown-menu .dropdown::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 10px; /* Bridge width */
+                height: 100%;
+                background: transparent;
+                z-index: 1000;
+            }
+        }
+
+        /* ----------  MOBILE  (≤ 991 px) - FIXED  ---------- */
+        @media (max-width: 991.98px) {
+            /* Remove the problematic display: none and let Bootstrap handle it */
+            .offcanvas .dropdown-menu {
+                position: static !important;
+                float: none !important;
+                transform: none !important;
+                width: 100%;
+                margin: 0.25rem 0;
+                box-shadow: none;
+                border: none;
+                background-color: transparent;
+            }
+
+            /* Style the dropdown items for mobile */
+            .offcanvas .dropdown-item {
+                padding: 0.75rem 1.5rem;
+                border-radius: 0;
+            }
+
+            /* Nested dropdown styling */
+            .offcanvas .dropdown .dropdown-menu .dropdown-item {
+                padding-left: 2rem;
+            }
+
+            /* Third level nesting */
+            .offcanvas .dropdown .dropdown .dropdown-menu .dropdown-item {
+                padding-left: 2.5rem;
+            }
+
+            /* Chevron icon styling */
+            .dropdown-toggle::after {
+                display: none;
+            }
+
+            .bi-chevron-right {
+                transition: transform 0.3s ease;
+            }
+
+            .dropdown.show .bi-chevron-right {
+                transform: rotate(90deg);
+            }
+        }
+
+
+@media (max-width: 600px) {
+  .offcanvas {
+    max-width: 320px;
+  }
+
+  .owl-stage-outer {
+    padding: 20px !important;
+  }
+
+  .carousel-content {
+    bottom: 0 !important;
+    width: 90% !important;
+
+
+  }
+
+}
